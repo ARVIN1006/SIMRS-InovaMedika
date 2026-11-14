@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+backend-yii2/vendor/
+service-node/node_modules/
+frontend-react/node_modules/
+frontend-react/dist/
+
+# Runtime & Caches
+backend-yii2/runtime/*
+!backend-yii2/runtime/.gitignore
+backend-yii2/web/assets/*
+!backend-yii2/web/assets/.gitignore
+.env
+*.log
+.DS_Store
+
+# IDE
+.idea/
+.vscode/

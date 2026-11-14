@@ -1,0 +1,341 @@
+{
+  "info": {
+    "_postman_id": "c8a4192b-84a1-4389-9e81-d1f03847a982",
+    "name": "SIMRS PT Inova Medika Solusindo - Outpatient System API",
+    "description": "Koleksi API Komprehensif untuk pengujian Sistem Pelayanan Rawat Jalan Terintegrasi (Yii2 Core + Node.js Services + PostgreSQL 16) - Technical Test Senior Programmer PT Inova Medika Solusindo oleh Arvin Ramdhan Fakhrudin.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url_yii",
+      "value": "http://localhost:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "base_url_node",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "token_admin",
+      "value": "token_admin_simrs_2026",
+      "type": "string"
+    },
+    {
+      "key": "token_doctor",
+      "value": "token_drbudi_simrs_2026",
+      "type": "string"
+    },
+    {
+      "key": "token_pharmacy",
+      "value": "token_farmasi_simrs_2026",
+      "type": "string"
+    },
+    {
+      "key": "token_lab",
+      "value": "token_lab_simrs_2026",
+      "type": "string"
+    },
+    {
+      "key": "token_cashier",
+      "value": "token_kasir_simrs_2026",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Authentication & RBAC",
+      "item": [
+        {
+          "name": "Login - Administrator",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/auth/login", "host": ["{{base_url_yii}}"], "path": ["auth", "login"] }
+          }
+        },
+        {
+          "name": "Login - Dokter (dr. Budi)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"dr_budi\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/auth/login", "host": ["{{base_url_yii}}"], "path": ["auth", "login"] }
+          }
+        },
+        {
+          "name": "Get Profile Current User",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/auth/me", "host": ["{{base_url_yii}}"], "path": ["auth", "me"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02. Master Data (Yii2)",
+      "item": [
+        {
+          "name": "Daftar Pasien (Filter & Search)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/patients?search=Hendra", "host": ["{{base_url_yii}}"], "path": ["patients"], "query": [{ "key": "search", "value": "Hendra" }] }
+          }
+        },
+        {
+          "name": "Tambah Pasien Baru",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_admin}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Yoga Pratama\",\n  \"nik\": \"3204998877660009\",\n  \"birth_date\": \"1996-05-14\",\n  \"gender\": \"L\",\n  \"blood_type\": \"B\",\n  \"phone\": \"081299887766\",\n  \"address\": \"Jl. Dago No. 102, Coblong, Kota Bandung\",\n  \"allergies\": \"Tidak ada\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/patients", "host": ["{{base_url_yii}}"], "path": ["patients"] }
+          }
+        },
+        {
+          "name": "Daftar Poliklinik",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/clinics", "host": ["{{base_url_yii}}"], "path": ["clinics"] }
+          }
+        },
+        {
+          "name": "Daftar Dokter & Jadwal",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/doctors", "host": ["{{base_url_yii}}"], "path": ["doctors"] }
+          }
+        },
+        {
+          "name": "Daftar Tindakan Medis & Tarif",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/services", "host": ["{{base_url_yii}}"], "path": ["services"] }
+          }
+        },
+        {
+          "name": "Daftar Obat & Stok Farmasi",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/medicines", "host": ["{{base_url_yii}}"], "path": ["medicines"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03. Pendaftaran & Antrean (Yii2)",
+      "item": [
+        {
+          "name": "Pendaftaran Kunjungan Pasien Baru",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_admin}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient_id\": 4,\n  \"clinic_id\": 1,\n  \"doctor_id\": 4,\n  \"payment_type\": \"UMUM\",\n  \"notes\": \"Keluhan demam dan nyeri tenggorokan\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/registrations", "host": ["{{base_url_yii}}"], "path": ["registrations"] }
+          }
+        },
+        {
+          "name": "SKENARIO D.1: Test Duplikasi Pendaftaran (Ekspektasi 409 Conflict)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_admin}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient_id\": 1,\n  \"clinic_id\": 2,\n  \"doctor_id\": 1,\n  \"payment_type\": \"UMUM\",\n  \"notes\": \"Percobaan pendaftaran duplikat pasien yang sama di hari yang sama\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/registrations", "host": ["{{base_url_yii}}"], "path": ["registrations"] }
+          }
+        },
+        {
+          "name": "Papan Antrean Hari Ini",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_yii}}/registrations/today-queue", "host": ["{{base_url_yii}}"], "path": ["registrations", "today-queue"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04. Pemeriksaan Dokter & RME (Yii2)",
+      "item": [
+        {
+          "name": "Simpan Pemeriksaan Dokter & Rekam Medis",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_doctor}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"registration_id\": 2,\n  \"anamnesis\": \"Pasien mengeluh ngilu pada gigi geraham bawah kanan sejak 4 hari.\",\n  \"complaints\": \"Gigi ngilu dan plak karang gigi menebal\",\n  \"systolic_bp\": 118,\n  \"diastolic_bp\": 76,\n  \"pulse_rate\": 78,\n  \"respiratory_rate\": 18,\n  \"body_temperature\": 36.6,\n  \"physical_examination\": \"Gigi 46 karies media sisi oklusal, kalkulus regio anterior dan posterior (+)\",\n  \"primary_diagnosis\": \"Dental caries, unspecified\",\n  \"primary_icd10\": \"K02.9\",\n  \"services\": [\n    { \"service_id\": 8, \"quantity\": 1 },\n    { \"service_id\": 9, \"quantity\": 1 }\n  ],\n  \"medicines\": [\n    { \"medicine_id\": 2, \"quantity\": 10, \"dosage\": \"500 mg\", \"frequency\": \"3 x 1 hari sesudah makan\", \"instructions\": \"Minum bila nyeri\" },\n    { \"medicine_id\": 1, \"quantity\": 15, \"dosage\": \"500 mg\", \"frequency\": \"3 x 1 hari sesudah makan\", \"instructions\": \"Habiskan (Antibiotik)\" }\n  ]\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/examinations", "host": ["{{base_url_yii}}"], "path": ["examinations"] }
+          }
+        },
+        {
+          "name": "SKENARIO D.4: Amandemen Rekam Medis Pasca Billing",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_doctor}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Klarifikasi diagnosis definitif berdasarkan evaluasi klinis lanjutan (Skenario D.4)\",\n  \"primary_diagnosis\": \"Essential (primary) hypertension, Grade 2 with target organ evaluation\",\n  \"primary_icd10\": \"I10\",\n  \"notes_amendment\": \"Tambahan catatan hasil pemantauan tensi serial 24 jam.\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/examinations/1/amend", "host": ["{{base_url_yii}}"], "path": ["examinations", "1", "amend"] }
+          }
+        },
+        {
+          "name": "Riwayat Rekam Medis Pasien",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_doctor}}" }],
+            "url": { "raw": "{{base_url_yii}}/examinations/patient/1", "host": ["{{base_url_yii}}"], "path": ["examinations", "patient", "1"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05. Farmasi & Resep Obat (Yii2)",
+      "item": [
+        {
+          "name": "Daftar Resep Masuk (Pending)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_pharmacy}}" }],
+            "url": { "raw": "{{base_url_yii}}/prescriptions?status=PENDING", "host": ["{{base_url_yii}}"], "path": ["prescriptions"], "query": [{ "key": "status", "value": "PENDING" }] }
+          }
+        },
+        {
+          "name": "SKENARIO D.2: Penyerahan Obat (Pessimistic Lock & Atomic Decrement)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_pharmacy}}" }],
+            "url": { "raw": "{{base_url_yii}}/prescriptions/1/dispense", "host": ["{{base_url_yii}}"], "path": ["prescriptions", "1", "dispense"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06. Laboratorium & Penunjang (Node.js)",
+      "item": [
+        {
+          "name": "Daftar Permintaan Lab (Node.js API)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_lab}}" }],
+            "url": { "raw": "{{base_url_node}}/lab/requests", "host": ["{{base_url_node}}"], "path": ["lab", "requests"] }
+          }
+        },
+        {
+          "name": "Input & Verifikasi Hasil Lab (Node.js API)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_lab}}" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"results\": [\n    {\n      \"test_name\": \"Gula Darah Puasa (GDP)\",\n      \"result_value\": \"98\",\n      \"normal_range\": \"70 - 100\",\n      \"unit\": \"mg/dL\",\n      \"interpretation\": \"NORMAL\"\n    },\n    {\n      \"test_name\": \"HbA1c\",\n      \"result_value\": \"5.4\",\n      \"normal_range\": \"< 5.7\",\n      \"unit\": \"%\",\n      \"interpretation\": \"NORMAL\"\n    }\n  ]\n}"
+            },
+            "url": { "raw": "{{base_url_node}}/lab/results/1", "host": ["{{base_url_node}}"], "path": ["lab", "results", "1"] }
+          }
+        },
+        {
+          "name": "SKENARIO D.5: Simulasi Gangguan Integrasi & Circuit Breaker",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"simulate_error\": true,\n  \"payload\": {\n    \"device_id\": \"SYS-XN550\",\n    \"sample_barcode\": \"SMP-991283\"\n  }\n}"
+            },
+            "url": { "raw": "{{base_url_node}}/lab/external-integration/webhook", "host": ["{{base_url_node}}"], "path": ["lab", "external-integration", "webhook"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "07. Billing & Pembayaran (Yii2)",
+      "item": [
+        {
+          "name": "Daftar Tagihan Pasien",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_cashier}}" }],
+            "url": { "raw": "{{base_url_yii}}/bills", "host": ["{{base_url_yii}}"], "path": ["bills"] }
+          }
+        },
+        {
+          "name": "Detail Rincian Invoice & Siap Cetak Struk",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_cashier}}" }],
+            "url": { "raw": "{{base_url_yii}}/bills/1/invoice", "host": ["{{base_url_yii}}"], "path": ["bills", "1", "invoice"] }
+          }
+        },
+        {
+          "name": "SKENARIO D.3: Pembayaran Kasir dengan Idempotency Key",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer {{token_cashier}}" },
+              { "key": "X-Idempotency-Key", "value": "IDEMP-TEST-KEY-0001" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 25000,\n  \"payment_method\": \"QRIS\",\n  \"payment_reference\": \"QRIS-SIM-99128\",\n  \"idempotency_key\": \"IDEMP-TEST-KEY-0001\"\n}"
+            },
+            "url": { "raw": "{{base_url_yii}}/bills/1/pay", "host": ["{{base_url_yii}}"], "path": ["bills", "1", "pay"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "08. Dashboard & Analitik (Node.js)",
+      "item": [
+        {
+          "name": "Ringkasan Statistik Operasional Rawat Jalan (Node.js)",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token_admin}}" }],
+            "url": { "raw": "{{base_url_node}}/dashboard/stats?period=all", "host": ["{{base_url_node}}"], "path": ["dashboard", "stats"], "query": [{ "key": "period", "value": "all" }] }
+          }
+        }
+      ]
+    }
+  ]
+}

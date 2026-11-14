@@ -1,0 +1,76 @@
+services:
+  # 1. PostgreSQL 16 Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: simrs-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: simrs_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./database/seeds.sql:/docker-entrypoint-initdb.d/02_seeds.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d simrs_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # 2. Main Backend SIMRS - Yii2 (PHP)
+  backend-yii2:
+    build:
+      context: ./backend-yii2
+      dockerfile: Dockerfile
+    container_name: simrs-backend-yii2
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: simrs_db
+      DB_USER: postgres
+      DB_PASS: password123
+    ports:
+      - "8000:80"
+
+  # 3. Backend Services & Analytics - Node.js Express
+  service-node:
+    build:
+      context: ./service-node
+      dockerfile: Dockerfile
+    container_name: simrs-service-node
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PORT: 5000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: simrs_db
+      DB_USER: postgres
+      DB_PASSWORD: password123
+    ports:
+      - "5000:5000"
+
+  # 4. Frontend Application - React.js (Nginx)
+  frontend-react:
+    build:
+      context: ./frontend-react
+      dockerfile: Dockerfile
+    container_name: simrs-frontend-react
+    restart: unless-stopped
+    depends_on:
+      - backend-yii2
+      - service-node
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:
