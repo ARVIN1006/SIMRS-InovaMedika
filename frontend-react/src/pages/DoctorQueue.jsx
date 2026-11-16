@@ -238,10 +238,10 @@ export default function DoctorQueue() {
         {/* Antrean Pasien Menunggu (4 Cols) */}
         <div className="lg:col-span-4 bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-            <h2 className="text-sm font-extrabold text-slate-900 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-emerald-600" /> Antrean Pasien Poli
+            <h2 className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-blue-600" /> Antrean Pasien Poli
             </h2>
-            <span className="text-xs bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded border border-emerald-200">
+            <span className="text-xs bg-blue-50 text-blue-700 font-bold px-2 py-0.5 rounded border border-blue-200">
               {waitingList.length} Menunggu
             </span>
           </div>
@@ -256,19 +256,19 @@ export default function DoctorQueue() {
                   <div
                     key={q.id}
                     onClick={() => handleSelectPatient(q)}
-                    className={`p-3 rounded-lg border text-xs cursor-pointer transition-all ${
+                    className={`p-3 rounded-xl border text-xs cursor-pointer transition-all ${
                       isSelected
-                        ? 'border-emerald-500 bg-emerald-50/70 shadow-sm'
+                        ? 'border-blue-500 bg-blue-50/70 shadow-xs'
                         : 'border-slate-200 hover:border-slate-300 bg-slate-50/50'
                     }`}
                   >
                     <div className="flex justify-between items-start">
                       <div>
-                        <span className="font-mono font-bold text-emerald-700 text-sm">{q.queue_number}</span>
-                        <div className="font-bold text-slate-900 mt-0.5">{q.patient?.name}</div>
+                        <span className="font-mono font-bold text-blue-600 text-xs px-1.5 py-0.5 rounded bg-white border border-blue-100">{q.queue_number}</span>
+                        <div className="font-bold text-slate-900 mt-1">{q.patient?.name}</div>
                         <div className="text-[11px] text-slate-500 font-mono">No. RM: {q.patient?.mr_number}</div>
                       </div>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">
+                      <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
                         {q.status}
                       </span>
                     </div>
@@ -294,100 +294,102 @@ export default function DoctorQueue() {
             </div>
           ) : (
             <form onSubmit={handleSubmitExamination} className="space-y-6 text-xs">
-              {/* Patient Banner */}
-              <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-lg flex justify-between items-center">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono font-extrabold text-base text-emerald-800">{selectedReg.queue_number}</span>
-                    <span className="font-bold text-sm text-slate-900">{selectedReg.patient?.name}</span>
-                    <span className="text-slate-500 font-mono">({selectedReg.patient?.mr_number})</span>
+              {/* Patient Banner (Matching Penpot RME Patient Strip) */}
+              <div className="bg-white border border-slate-200 p-4 rounded-xl shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center font-bold text-sm shrink-0">
+                    {selectedReg.patient?.name ? selectedReg.patient.name.slice(0, 2).toUpperCase() : 'PS'}
                   </div>
-                  <div className="text-[11px] text-slate-600 mt-1">
-                    Gender: {selectedReg.patient?.gender === 'L' ? 'Laki-laki' : 'Perempuan'} | NIK: {selectedReg.patient?.nik} | Alergi: <span className="text-rose-600 font-semibold">{selectedReg.patient?.allergies || 'Tidak ada'}</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono font-bold text-blue-600 text-xs px-2 py-0.5 rounded bg-blue-50 border border-blue-200">
+                        {selectedReg.queue_number}
+                      </span>
+                      <span className="font-bold text-sm text-slate-900">{selectedReg.patient?.name}</span>
+                      <span className="text-slate-400 font-mono text-xs">({selectedReg.patient?.mr_number})</span>
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-1">
+                      {selectedReg.patient?.gender === 'L' ? 'Laki-laki' : 'Perempuan'} | NIK: {selectedReg.patient?.nik} | Penjamin: <span className="font-semibold text-slate-700">{selectedReg.payment_type}</span> | Alergi: <span className="text-rose-600 font-semibold">{selectedReg.patient?.allergies || 'Tidak ada'}</span>
+                    </div>
                   </div>
-                </div>
-                <div className="text-right">
-                  <span className="px-2.5 py-1 bg-white font-bold text-slate-700 rounded border border-emerald-300 text-[11px]">
-                    Penjamin: {selectedReg.payment_type}
-                  </span>
                 </div>
               </div>
 
-              {/* 1. Tanda-Tanda Vital (TTV) */}
-              <div className="space-y-3">
-                <h3 className="font-extrabold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-1.5 text-emerald-700">
-                  <Activity className="w-4 h-4" /> 1. Tanda-Tanda Vital (Vital Signs)
+              {/* 1. Tanda-Tanda Vital (Vital Signs) */}
+              <div className="space-y-2.5">
+                <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-1.5 text-blue-700">
+                  <Activity className="w-3.5 h-3.5 text-blue-600" /> 1. Tanda-Tanda Vital (Vital Signs)
                 </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50/70 p-3.5 rounded-xl border border-slate-200">
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">TD Sistolik (mmHg)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">TD Sistolik (mmHg)</label>
                     <input
                       type="number"
                       value={systolicBp}
                       onChange={(e) => setSystolicBp(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">TD Diastolik (mmHg)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">TD Diastolik (mmHg)</label>
                     <input
                       type="number"
                       value={diastolicBp}
                       onChange={(e) => setDiastolicBp(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">Nadi / Pulse (x/mnt)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">Nadi / Pulse (x/mnt)</label>
                     <input
                       type="number"
                       value={pulseRate}
                       onChange={(e) => setPulseRate(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">Suhu Tubuh (°C)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">Suhu Tubuh (°C)</label>
                     <input
                       type="number"
                       step="0.1"
                       value={bodyTemp}
                       onChange={(e) => setBodyTemp(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">Respirasi (x/mnt)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">Respirasi (x/mnt)</label>
                     <input
                       type="number"
                       value={respiratoryRate}
                       onChange={(e) => setRespiratoryRate(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">Berat Badan (kg)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">Berat Badan (kg)</label>
                     <input
                       type="number"
                       step="0.1"
                       value={weightKg}
                       onChange={(e) => setWeightKg(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">Tinggi Badan (cm)</label>
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">Tinggi Badan (cm)</label>
                     <input
                       type="number"
                       step="0.1"
                       value={heightCm}
                       onChange={(e) => setHeightCm(e.target.value)}
-                      className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                      className="w-full p-2 border border-slate-200 rounded-lg bg-white font-mono font-bold text-slate-800 text-xs focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] text-slate-600 font-semibold block">IMT (kg/m²)</label>
-                    <div className="p-1.5 bg-slate-200/70 border border-slate-300 rounded font-mono font-bold text-slate-700">
+                    <label className="text-[11px] text-slate-500 font-semibold block mb-1">IMT (kg/m²)</label>
+                    <div className="p-2 bg-slate-100 border border-slate-200 rounded-lg font-mono font-bold text-slate-800 text-xs">
                       {((parseFloat(weightKg) || 0) / Math.pow((parseFloat(heightCm) || 100) / 100, 2)).toFixed(1)}
                     </div>
                   </div>
@@ -654,7 +656,7 @@ export default function DoctorQueue() {
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-extrabold text-xs uppercase tracking-wider shadow-md"
+                  className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
                 >
                   Selesaikan Pemeriksaan & Simpan RME
                 </button>

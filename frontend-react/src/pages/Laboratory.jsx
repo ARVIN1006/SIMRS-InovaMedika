@@ -9,6 +9,9 @@ import {
   FileCheck,
   ShieldCheck,
   Zap,
+  Activity,
+  Radio,
+  X,
 } from 'lucide-react';
 
 export default function Laboratory() {
@@ -52,14 +55,14 @@ export default function Laboratory() {
         setTestResults(fullData.results);
       } else {
         // Pre-fill standard templates based on test type
-        if (fullData.test_type.includes('Lipid')) {
+        if (fullData.test_type?.includes('Lipid')) {
           setTestResults([
             { test_name: 'Kolesterol Total', result_value: '190', normal_range: '< 200', unit: 'mg/dL', interpretation: 'NORMAL' },
             { test_name: 'Trigliserida', result_value: '140', normal_range: '< 150', unit: 'mg/dL', interpretation: 'NORMAL' },
             { test_name: 'Kolesterol HDL', result_value: '52', normal_range: '> 40', unit: 'mg/dL', interpretation: 'NORMAL' },
             { test_name: 'Kolesterol LDL', result_value: '98', normal_range: '< 100', unit: 'mg/dL', interpretation: 'NORMAL' },
           ]);
-        } else if (fullData.test_type.includes('Darah Rutin')) {
+        } else if (fullData.test_type?.includes('Darah Rutin')) {
           setTestResults([
             { test_name: 'Hemoglobin (Hb)', result_value: '14.2', normal_range: '13.0 - 17.5', unit: 'g/dL', interpretation: 'NORMAL' },
             { test_name: 'Leukosit', result_value: '7500', normal_range: '4500 - 11000', unit: '/uL', interpretation: 'NORMAL' },
@@ -136,34 +139,47 @@ export default function Laboratory() {
       {/* Header */}
       <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Pemeriksaan Penunjang (Laboratorium)</h1>
-          <p className="text-sm text-slate-500 mt-1">
-            Modul analis lab dan integrasi data eksternal yang di-host pada <span className="font-semibold text-rose-600">Node.js Express Backend Service</span>.
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">Pemeriksaan Penunjang (Laboratorium)</h1>
+          <p className="text-xs text-slate-500 mt-1">
+            Modul analis laboratorium dan integrasi data LIS eksternal dengan <span className="font-semibold text-blue-600">Circuit Breaker & Fallback Protocol (Skenario D.5)</span>.
           </p>
         </div>
 
-        {/* Integration Test Button */}
+        {/* Integration Test Buttons */}
         <div className="flex items-center gap-2">
           <button
             onClick={() => handleTestIntegration(false)}
-            className="bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all shadow"
+            className="bg-slate-800 hover:bg-slate-900 text-white px-3.5 py-2 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
             title="Uji transmisi normal ke LIS eksternal"
           >
-            <Zap className="w-3.5 h-3.5 text-emerald-400" /> Test Integrasi LIS (Normal)
+            <Zap className="w-3.5 h-3.5 text-emerald-400" /> Test Integrasi LIS
           </button>
           <button
             onClick={() => handleTestIntegration(true)}
-            className="bg-rose-800 hover:bg-rose-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 transition-all shadow"
+            className="bg-rose-700 hover:bg-rose-800 text-white px-3.5 py-2 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm"
             title="Simulasikan gangguan jaringan eksternal untuk menguji Circuit Breaker D.5"
           >
-            <Zap className="w-3.5 h-3.5 text-amber-400" /> Simulasi Error (D.5)
+            <Zap className="w-3.5 h-3.5 text-amber-300" /> Simulasi Error (D.5)
           </button>
         </div>
       </div>
 
+      {/* LIS Connection Status Strip (Matching Penpot Laboratory Board) */}
+      <div className="bg-emerald-50/70 border border-emerald-200 p-4 rounded-xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs">
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span className="font-bold text-emerald-900">LIS Status: Terhubung (Online)</span>
+          <span className="text-slate-400">•</span>
+          <span className="text-emerald-800 font-medium">Sysmex XN-550 Hematology Analyzer (Ready, Sync setiap 30 detik)</span>
+        </div>
+        <span className="text-[11px] font-mono text-emerald-700 bg-white px-2.5 py-0.5 rounded border border-emerald-200 font-semibold">
+          Node.js Service :5000
+        </span>
+      </div>
+
       {/* Circuit Breaker Response Banner (If Triggered) */}
       {circuitResponse && (
-        <div className={`p-4 rounded-lg text-xs border font-mono ${
+        <div className={`p-4 rounded-xl text-xs border font-mono ${
           circuitResponse.success ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-amber-50 border-amber-300 text-amber-900'
         }`}>
           <div className="font-bold flex items-center gap-2 mb-1">
@@ -176,85 +192,90 @@ export default function Laboratory() {
         </div>
       )}
 
+      {/* Alert Notices */}
       {message && (
-        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 text-sm flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 shrink-0" />
-          <span>{message}</span>
+        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs flex items-center gap-2.5">
+          <CheckCircle className="w-4 h-4 shrink-0 text-emerald-600" />
+          <span className="font-medium">{message}</span>
         </div>
       )}
       {error && (
-        <div className="p-4 bg-rose-50 border border-rose-200 rounded-lg text-rose-800 text-sm flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 shrink-0" />
-          <span>{error}</span>
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs flex items-center gap-2.5">
+          <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+          <span className="font-medium">{error}</span>
         </div>
       )}
 
       {/* Requests Table */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center">
-          <h2 className="text-base font-extrabold text-slate-900">Daftar Permintaan Laboratorium Rawat Jalan</h2>
+        <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+          <h2 className="text-sm font-bold text-slate-900">Daftar Permintaan Uji Laboratorium Rawat Jalan</h2>
           <span className="text-xs text-slate-500 font-semibold">{requests.length} Permintaan</span>
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
-            <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
+            <thead className="bg-slate-50/70 text-slate-600 font-semibold border-b border-slate-200">
               <tr>
-                <th className="py-3 px-4">NO PERMINTAAN</th>
-                <th className="py-3 px-4">PASIEN & NO RM</th>
-                <th className="py-3 px-4">JENIS PEMERIKSAAN</th>
-                <th className="py-3 px-4">INDIKASI KLINIS</th>
-                <th className="py-3 px-4">DOKTER PENGIRIM</th>
-                <th className="py-3 px-4 text-center">STATUS</th>
-                <th className="py-3 px-4 text-center">AKSI</th>
+                <th className="py-3.5 px-5">NO PERMINTAAN</th>
+                <th className="py-3.5 px-5">PASIEN & NO RM</th>
+                <th className="py-3.5 px-5">JENIS PEMERIKSAAN</th>
+                <th className="py-3.5 px-5">INDIKASI KLINIS</th>
+                <th className="py-3.5 px-5">DOKTER PENGIRIM</th>
+                <th className="py-3.5 px-4 text-center">STATUS</th>
+                <th className="py-3.5 px-5 text-center">AKSI</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="text-center py-8 text-slate-400">
-                    Memuat permintaan laboratorium...
+                  <td colSpan={7} className="text-center py-10 text-slate-400">
+                    Memuat data permintaan laboratorium...
                   </td>
                 </tr>
               ) : requests.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="text-center py-8 text-slate-400">
-                    Belum ada permintaan laboratorium.
+                  <td colSpan={7} className="text-center py-10 text-slate-400">
+                    Belum ada permintaan laboratorium terdaftar.
                   </td>
                 </tr>
               ) : (
                 requests.map((req) => (
-                  <tr key={req.id} className="hover:bg-slate-50/50">
-                    <td className="py-3 px-4 font-mono font-extrabold text-indigo-700">
-                      {req.request_number}
-                    </td>
-                    <td className="py-3 px-4">
-                      <div className="font-bold text-slate-900">{req.patient_name}</div>
-                      <div className="text-[11px] text-slate-400 font-mono">{req.mr_number}</div>
-                    </td>
-                    <td className="py-3 px-4 font-semibold text-slate-800">
-                      {req.test_type}
-                    </td>
-                    <td className="py-3 px-4 text-slate-500 max-w-xs truncate">
-                      {req.clinical_indication || '-'}
-                    </td>
-                    <td className="py-3 px-4 text-slate-600">
-                      {req.doctor_name}
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                        req.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
-                      }`}>
-                        {req.status}
+                  <tr key={req.id} className="hover:bg-slate-50/50 transition-colors">
+                    <td className="py-3.5 px-5">
+                      <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                        {req.request_number}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-center">
+                    <td className="py-3.5 px-5">
+                      <div className="font-semibold text-slate-900">{req.patient_name}</div>
+                      <div className="text-[11px] text-slate-400 font-mono mt-0.5">{req.mr_number}</div>
+                    </td>
+                    <td className="py-3.5 px-5 font-semibold text-slate-800">
+                      {req.test_type}
+                    </td>
+                    <td className="py-3.5 px-5 text-slate-500 max-w-xs truncate">
+                      {req.clinical_indication || '-'}
+                    </td>
+                    <td className="py-3.5 px-5 text-slate-600">
+                      {req.doctor_name}
+                    </td>
+                    <td className="py-3.5 px-4 text-center">
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold border ${
+                        req.status === 'COMPLETED'
+                          ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                          : 'bg-amber-50 text-amber-700 border border-amber-200'
+                      }`}>
+                        {req.status === 'COMPLETED' ? 'Selesai Diuji' : 'Menunggu Sampel'}
+                      </span>
+                    </td>
+                    <td className="py-3.5 px-5 text-center">
                       <button
                         onClick={() => handleOpenResultModal(req)}
-                        className={`px-3 py-1 rounded text-xs font-bold transition-all shadow-sm ${
+                        className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all shadow-xs ${
                           req.status === 'COMPLETED'
-                            ? 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300'
-                            : 'bg-rose-600 text-white hover:bg-rose-500'
+                            ? 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
+                            : 'bg-blue-600 text-white hover:bg-blue-700'
                         }`}
                       >
                         {req.status === 'COMPLETED' ? 'Lihat / Edit Hasil' : 'Input Hasil Lab'}
@@ -270,95 +291,101 @@ export default function Laboratory() {
 
       {/* Input / View Results Modal */}
       {selectedRequest && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full p-6 border border-slate-200 my-8">
-            <div className="flex justify-between items-start pb-4 border-b border-slate-200">
+            <div className="flex justify-between items-start pb-4 border-b border-slate-100">
               <div>
-                <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                  <FlaskConical className="w-5 h-5 text-rose-600" /> Input Hasil Uji Laboratorium
+                <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                  <FlaskConical className="w-4 h-4 text-blue-600" /> Input Hasil Uji Laboratorium
                 </h2>
                 <div className="text-xs text-slate-500 mt-1">
-                  Pasien: <span className="font-bold text-slate-800">{selectedRequest.patient_name}</span> ({selectedRequest.mr_number}) • No: {selectedRequest.request_number}
+                  Pasien: <span className="font-semibold text-slate-800">{selectedRequest.patient_name}</span> ({selectedRequest.mr_number}) • No: <span className="font-mono font-medium">{selectedRequest.request_number}</span>
                 </div>
               </div>
               <button
                 onClick={() => setSelectedRequest(null)}
-                className="text-slate-400 hover:text-slate-700 text-lg font-bold"
+                className="text-slate-400 hover:text-slate-700 p-1 rounded-lg transition-colors"
+                title="Tutup"
               >
-                ✕
+                <X className="w-4 h-4" />
               </button>
             </div>
 
             <form onSubmit={handleSubmitResults} className="mt-4 space-y-4 text-xs">
               <div className="flex justify-between items-center">
-                <span className="font-bold text-slate-700">Rincian Parameter Uji Laboratorium:</span>
+                <span className="font-semibold text-slate-700">Rincian Parameter Uji Laboratorium:</span>
                 <button
                   type="button"
                   onClick={handleAddResultRow}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 border border-slate-300"
+                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1 border border-slate-200 transition-colors"
                 >
-                  <Plus className="w-3.5 h-3.5" /> Tambah Baris Parameter
+                  <Plus className="w-3.5 h-3.5" /> Tambah Parameter
                 </button>
               </div>
 
-              <div className="space-y-2 max-h-80 overflow-y-auto divide-y divide-slate-100">
+              <div className="space-y-2.5 max-h-80 overflow-y-auto">
                 {testResults.map((r, idx) => (
-                  <div key={idx} className="pt-2 grid grid-cols-12 gap-2 items-center">
+                  <div key={idx} className="p-3 bg-slate-50/70 border border-slate-200 rounded-xl grid grid-cols-12 gap-2.5 items-center">
                     <div className="col-span-4">
+                      <label className="text-[10px] text-slate-500 font-semibold block mb-0.5">Nama Parameter</label>
                       <input
                         type="text"
                         required
-                        placeholder="Nama Uji / Parameter (mis: Hemoglobin)"
+                        placeholder="Contoh: Hemoglobin"
                         value={r.test_name}
                         onChange={(e) => {
                           const updated = [...testResults];
                           updated[idx].test_name = e.target.value;
                           setTestResults(updated);
                         }}
-                        className="w-full p-1.5 border border-slate-300 rounded font-semibold"
+                        className="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg text-xs font-semibold bg-white focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div className="col-span-2">
+                      <label className="text-[10px] text-slate-500 font-semibold block mb-0.5">Nilai Hasil</label>
                       <input
                         type="text"
                         required
-                        placeholder="Nilai Hasil"
+                        placeholder="Nilai"
                         value={r.result_value}
                         onChange={(e) => {
                           const updated = [...testResults];
                           updated[idx].result_value = e.target.value;
                           setTestResults(updated);
                         }}
-                        className="w-full p-1.5 border border-slate-300 rounded font-mono font-bold"
+                        className="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg text-xs font-mono font-bold bg-white text-slate-900 focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div className="col-span-2">
+                      <label className="text-[10px] text-slate-500 font-semibold block mb-0.5">Nilai Rujukan</label>
                       <input
                         type="text"
-                        placeholder="Nilai Rujukan"
+                        placeholder="Rujukan"
                         value={r.normal_range || ''}
                         onChange={(e) => {
                           const updated = [...testResults];
                           updated[idx].normal_range = e.target.value;
                           setTestResults(updated);
                         }}
-                        className="w-full p-1.5 border border-slate-300 rounded"
+                        className="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg text-xs bg-white focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div className="col-span-1">
+                      <label className="text-[10px] text-slate-500 font-semibold block mb-0.5">Satuan</label>
                       <input
                         type="text"
-                        placeholder="Satuan"
+                        placeholder="Unit"
                         value={r.unit || ''}
                         onChange={(e) => {
                           const updated = [...testResults];
                           updated[idx].unit = e.target.value;
                           setTestResults(updated);
                         }}
-                        className="w-full p-1.5 border border-slate-300 rounded"
+                        className="w-full px-2 py-1.5 border border-slate-200 rounded-lg text-xs bg-white text-center focus:ring-1 focus:ring-blue-500"
                       />
                     </div>
                     <div className="col-span-2">
+                      <label className="text-[10px] text-slate-500 font-semibold block mb-0.5">Interpretasi</label>
                       <select
                         value={r.interpretation || 'NORMAL'}
                         onChange={(e) => {
@@ -366,7 +393,7 @@ export default function Laboratory() {
                           updated[idx].interpretation = e.target.value;
                           setTestResults(updated);
                         }}
-                        className="w-full p-1.5 border border-slate-300 rounded font-semibold bg-white"
+                        className="w-full px-2 py-1.5 border border-slate-200 rounded-lg text-xs font-semibold bg-white focus:ring-1 focus:ring-blue-500"
                       >
                         <option value="NORMAL">NORMAL</option>
                         <option value="ABNORMAL_HIGH">TINGGI</option>
@@ -374,31 +401,32 @@ export default function Laboratory() {
                         <option value="CRITICAL">KRITIS</option>
                       </select>
                     </div>
-                    <div className="col-span-1 text-center">
+                    <div className="col-span-1 text-center pt-3">
                       <button
                         type="button"
                         onClick={() => handleRemoveResultRow(idx)}
-                        className="text-rose-500 hover:text-rose-700 p-1"
+                        className="text-slate-400 hover:text-rose-600 p-1 rounded transition-colors"
+                        title="Hapus Baris"
                       >
-                        <Trash2 className="w-3.5 h-3.5" />
+                        <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-slate-200 flex justify-end gap-2">
+              <div className="pt-4 border-t border-slate-100 flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setSelectedRequest(null)}
-                  className="px-4 py-2 border border-slate-300 rounded-lg text-slate-700 font-bold"
+                  className="px-4 py-2 border border-slate-200 rounded-lg text-slate-700 font-semibold hover:bg-slate-50 transition-colors"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-5 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-lg font-bold flex items-center gap-1.5 shadow"
+                  className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold flex items-center gap-2 shadow-sm transition-all"
                 >
                   <FileCheck className="w-4 h-4" />
                   {isSubmitting ? 'Menyimpan...' : 'Verifikasi & Simpan Hasil Lab'}

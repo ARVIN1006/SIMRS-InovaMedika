@@ -81,8 +81,10 @@ export default function App() {
       <Navbar currentUser={currentUser} onSwitchRole={handleSwitchRole} />
       <div className="flex-1 flex overflow-hidden">
         <Sidebar currentTab={currentTab} setTab={setCurrentTab} userRole={currentUser.role} />
-        <main className="flex-1 p-6 overflow-y-auto max-w-7xl mx-auto w-full">
-          {renderContent()}
+        <main className="flex-1 p-6 overflow-y-auto w-full">
+          <div className="max-w-[1200px]">
+            {renderContent()}
+          </div>
         </main>
       </div>
     </div>

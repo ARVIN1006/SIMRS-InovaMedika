@@ -9,6 +9,7 @@ import {
   AlertCircle,
   CheckCircle,
   FileText,
+  Filter,
 } from 'lucide-react';
 
 export default function Patients() {
@@ -130,31 +131,33 @@ export default function Patients() {
 
   return (
     <div className="space-y-6">
+      {/* Header */}
       <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Master Data Pasien & No. Rekam Medis</h1>
-          <p className="text-sm text-slate-500 mt-1">
-            Pengelolaan data dasar pasien dengan penomoran rekam medis otomatis berformat <span className="font-mono font-semibold text-sky-700">RM-YYYYMM-XXXX</span>.
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">Master Data Pasien & No. Rekam Medis</h1>
+          <p className="text-xs text-slate-500 mt-1">
+            Pengelolaan data dasar pasien dengan penomoran rekam medis otomatis berformat <span className="font-mono font-semibold text-blue-600">RM-YYYYMM-XXXX</span>.
           </p>
         </div>
         <button
           onClick={handleOpenAdd}
-          className="bg-sky-600 hover:bg-sky-500 text-white px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 shadow"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
         >
           <UserPlus className="w-4 h-4" /> Tambah Pasien Baru
         </button>
       </div>
 
+      {/* Alert Notices */}
       {message && (
-        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-emerald-800 text-sm flex items-center gap-2">
-          <CheckCircle className="w-5 h-5 shrink-0" />
-          <span>{message}</span>
+        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-800 text-xs flex items-center gap-2.5">
+          <CheckCircle className="w-4 h-4 shrink-0 text-emerald-600" />
+          <span className="font-medium">{message}</span>
         </div>
       )}
       {error && (
-        <div className="p-4 bg-rose-50 border border-rose-200 rounded-lg text-rose-800 text-sm flex items-center gap-2">
-          <AlertCircle className="w-5 h-5 shrink-0" />
-          <span>{error}</span>
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl text-rose-800 text-xs flex items-center gap-2.5">
+          <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+          <span className="font-medium">{error}</span>
         </div>
       )}
 
@@ -162,93 +165,105 @@ export default function Patients() {
       <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
         <form onSubmit={handleSearch} className="flex gap-2">
           <div className="relative flex-1">
-            <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
+            <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-400" />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Cari berdasarkan No. Rekam Medis, NIK, Nama, atau No. HP..."
-              className="w-full pl-9 pr-3 py-2 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:outline-none"
+              placeholder="Cari berdasarkan No. Rekam Medis, NIK, Nama Pasien, atau No. HP..."
+              className="w-full pl-9 pr-4 py-2.5 text-xs border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all placeholder:text-slate-400"
             />
           </div>
-          <button type="submit" className="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-lg text-xs font-bold">
-            Cari
+          <button
+            type="submit"
+            className="bg-slate-800 hover:bg-slate-900 text-white px-5 py-2.5 rounded-lg text-xs font-semibold transition-all shadow-sm"
+          >
+            Cari Pasien
           </button>
         </form>
       </div>
 
       {/* Table */}
       <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center">
+          <h2 className="text-sm font-bold text-slate-900">Katalog Rekam Medis Pasien Terdaftar</h2>
+          <span className="text-xs text-slate-500 font-semibold">{patients.length} Pasien</span>
+        </div>
+
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
-            <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200">
+            <thead className="bg-slate-50/70 text-slate-600 font-semibold border-b border-slate-200">
               <tr>
-                <th className="py-3 px-4">NO. REKAM MEDIS</th>
-                <th className="py-3 px-4">NIK</th>
-                <th className="py-3 px-4">NAMA PASIEN</th>
-                <th className="py-3 px-4">GENDER / TGL LAHIR</th>
-                <th className="py-3 px-4">NO. HP</th>
-                <th className="py-3 px-4">ALAMAT</th>
-                <th className="py-3 px-4">ALERGI</th>
-                <th className="py-3 px-4 text-center">AKSI</th>
+                <th className="py-3.5 px-5">NO. REKAM MEDIS</th>
+                <th className="py-3.5 px-4">NIK</th>
+                <th className="py-3.5 px-5">NAMA PASIEN</th>
+                <th className="py-3.5 px-4">GENDER / TGL LAHIR</th>
+                <th className="py-3.5 px-4">NO. TELEPON</th>
+                <th className="py-3.5 px-5">ALAMAT</th>
+                <th className="py-3.5 px-4">ALERGI</th>
+                <th className="py-3.5 px-4 text-center">AKSI</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
-                  <td colSpan={8} className="text-center py-8 text-slate-400">
+                  <td colSpan={8} className="text-center py-10 text-slate-400">
                     Memuat data pasien...
                   </td>
                 </tr>
               ) : patients.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="text-center py-8 text-slate-400">
-                    Tidak ada data pasien yang cocok.
+                  <td colSpan={8} className="text-center py-10 text-slate-400">
+                    Tidak ada data pasien yang cocok dengan kriteria pencarian.
                   </td>
                 </tr>
               ) : (
                 patients.map((p) => (
-                  <tr key={p.id} className="hover:bg-slate-50/50">
-                    <td className="py-3 px-4 font-mono font-extrabold text-sky-800">
-                      {p.mr_number}
+                  <tr key={p.id} className="hover:bg-slate-50/60 transition-colors">
+                    <td className="py-3.5 px-5">
+                      <span className="font-mono font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                        {p.mr_number}
+                      </span>
                     </td>
-                    <td className="py-3 px-4 font-mono text-slate-600">
+                    <td className="py-3.5 px-4 font-mono text-slate-600">
                       {p.nik}
                     </td>
-                    <td className="py-3 px-4 font-bold text-slate-900">
+                    <td className="py-3.5 px-5 font-semibold text-slate-900">
                       {p.name}
                     </td>
-                    <td className="py-3 px-4 text-slate-600">
+                    <td className="py-3.5 px-4 text-slate-600">
                       {p.gender === 'L' ? 'Laki-laki' : 'Perempuan'} • {p.birth_date}
                     </td>
-                    <td className="py-3 px-4 text-slate-600">
+                    <td className="py-3.5 px-4 text-slate-600">
                       {p.phone || '-'}
                     </td>
-                    <td className="py-3 px-4 text-slate-500 max-w-xs truncate">
+                    <td className="py-3.5 px-5 text-slate-500 max-w-xs truncate">
                       {p.address}
                     </td>
-                    <td className="py-3 px-4">
+                    <td className="py-3.5 px-4">
                       {p.allergies ? (
-                        <span className="text-rose-600 font-semibold">{p.allergies}</span>
+                        <span className="text-rose-600 font-medium bg-rose-50 px-2 py-0.5 rounded border border-rose-100">
+                          {p.allergies}
+                        </span>
                       ) : (
                         <span className="text-slate-400">-</span>
                       )}
                     </td>
-                    <td className="py-3 px-4 text-center">
+                    <td className="py-3.5 px-4 text-center">
                       <div className="flex items-center justify-center gap-1.5">
                         <button
                           onClick={() => handleOpenEdit(p)}
-                          className="p-1 text-slate-600 hover:text-sky-600 hover:bg-slate-100 rounded"
+                          className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors"
                           title="Ubah Data Pasien"
                         >
-                          <Edit className="w-4 h-4" />
+                          <Edit className="w-3.5 h-3.5" />
                         </button>
                         <button
                           onClick={() => handleDelete(p.id)}
-                          className="p-1 text-slate-400 hover:text-rose-600 hover:bg-slate-100 rounded"
+                          className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors"
                           title="Hapus Pasien"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </td>
@@ -262,13 +277,13 @@ export default function Patients() {
 
       {/* Add / Edit Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 border border-slate-200 my-8">
-            <h2 className="text-base font-extrabold text-slate-900 mb-4 flex items-center gap-2">
-              <UserPlus className="w-5 h-5 text-sky-600" />
+            <h2 className="text-sm font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <UserPlus className="w-4 h-4 text-blue-600" />
               {isEditing ? 'Ubah Data Pasien' : 'Registrasi Pasien Baru'}
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-3 text-xs">
+            <form onSubmit={handleSubmit} className="space-y-3.5 text-xs">
               <div>
                 <label className="font-semibold text-slate-700 block mb-1">Nama Lengkap Pasien *</label>
                 <input
@@ -276,7 +291,7 @@ export default function Patients() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full p-2 border border-slate-300 rounded-lg"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
 
@@ -289,7 +304,7 @@ export default function Patients() {
                     maxLength={16}
                     value={formData.nik}
                     onChange={(e) => setFormData({ ...formData, nik: e.target.value })}
-                    className="w-full p-2 border border-slate-300 rounded-lg font-mono"
+                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs font-mono focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   />
                 </div>
                 <div>
@@ -299,7 +314,7 @@ export default function Patients() {
                     required
                     value={formData.birth_date}
                     onChange={(e) => setFormData({ ...formData, birth_date: e.target.value })}
-                    className="w-full p-2 border border-slate-300 rounded-lg"
+                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   />
                 </div>
               </div>
@@ -310,18 +325,18 @@ export default function Patients() {
                   <select
                     value={formData.gender}
                     onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                    className="w-full p-2 border border-slate-300 rounded-lg"
+                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   >
                     <option value="L">Laki-laki</option>
                     <option value="P">Perempuan</option>
                   </select>
                 </div>
                 <div>
-                  <label className="font-semibold text-slate-700 block mb-1">Golongan Darah</label>
+                  <label className="font-semibold text-slate-700 block mb-1">Gol. Darah</label>
                   <select
                     value={formData.blood_type}
                     onChange={(e) => setFormData({ ...formData, blood_type: e.target.value })}
-                    className="w-full p-2 border border-slate-300 rounded-lg"
+                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   >
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -331,12 +346,13 @@ export default function Patients() {
                   </select>
                 </div>
                 <div>
-                  <label className="font-semibold text-slate-700 block mb-1">No. HP Pasien</label>
+                  <label className="font-semibold text-slate-700 block mb-1">No. HP</label>
                   <input
                     type="text"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full p-2 border border-slate-300 rounded-lg"
+                    className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    placeholder="0812xxxxxxxx"
                   />
                 </div>
               </div>
@@ -348,7 +364,7 @@ export default function Patients() {
                   rows={2}
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="w-full p-2 border border-slate-300 rounded-lg"
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 ></textarea>
               </div>
 
@@ -358,24 +374,24 @@ export default function Patients() {
                   type="text"
                   value={formData.allergies}
                   onChange={(e) => setFormData({ ...formData, allergies: e.target.value })}
-                  className="w-full p-2 border border-slate-300 rounded-lg"
-                  placeholder="Mis: Penisilin, Dingin, Debu..."
+                  className="w-full px-3 py-2 border border-slate-200 rounded-lg text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  placeholder="Mis: Penisilin, Parasetamol, Seafood..."
                 />
               </div>
 
-              <div className="flex justify-end gap-2 pt-3 border-t border-slate-200">
+              <div className="flex justify-end gap-2 pt-3 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 border border-slate-300 rounded-lg text-slate-700 font-bold"
+                  className="px-4 py-2 border border-slate-200 rounded-lg text-slate-700 font-semibold hover:bg-slate-50 transition-colors"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-sky-600 hover:bg-sky-500 text-white rounded-lg font-bold shadow"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-sm"
                 >
-                  Simpan Data
+                  {isEditing ? 'Simpan Perubahan' : 'Daftarkan Pasien'}
                 </button>
               </div>
             </form>
