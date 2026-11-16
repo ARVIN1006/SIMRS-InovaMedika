@@ -83,6 +83,49 @@ function precisionTidyAndVerify() {
         }
       }
 
+      // Ensure generous padding (no cramped/mepet text)
+      if (board.name === "SIMRS - Pemeriksaan RME") {
+        const t1Price = board.children.find(c => c.name === "tind-1-price");
+        if (t1Price) t1Price.x = board.x + 1314;
+        const t2Price = board.children.find(c => c.name === "tind-2-price");
+        if (t2Price) t2Price.x = board.x + 1314;
+        const d1Qty = board.children.find(c => c.name === "drug-1-qty");
+        if (d1Qty) d1Qty.x = board.x + 1297;
+        const d2Qty = board.children.find(c => c.name === "drug-2-qty");
+        if (d2Qty) d2Qty.x = board.x + 1299;
+        const billBox = board.children.find(c => c.name === "bill-box");
+        if (billBox && typeof billBox.resize === "function") billBox.resize(636, 84);
+
+        const tKeluhan = board.children.find(c => c.name === "txt-keluhan");
+        if (tKeluhan) tKeluhan.x = board.x + 64;
+        const tAnam1 = board.children.find(c => c.name === "txt-anam-1");
+        if (tAnam1) tAnam1.x = board.x + 64;
+        const tAnam2 = board.children.find(c => c.name === "txt-anam-2");
+        if (tAnam2) tAnam2.x = board.x + 64;
+        const tFisik1 = board.children.find(c => c.name === "txt-fisik-1");
+        if (tFisik1) tFisik1.x = board.x + 64;
+        const tFisik2 = board.children.find(c => c.name === "txt-fisik-2");
+        if (tFisik2) tFisik2.x = board.x + 64;
+      }
+
+      if (board.name === "SIMRS - Kasir & Pembayaran") {
+        const sumBox = board.children.find(c => c.name === "cas-sum-box");
+        if (sumBox && typeof sumBox.resize === "function") sumBox.resize(580, 96);
+        const btnPrint = board.children.find(c => c.name === "cas-btn-print");
+        const btnPrintT = board.children.find(c => c.name === "cas-btn-print-t");
+        const btnPay = board.children.find(c => c.name === "cas-btn-pay");
+        const btnPayT = board.children.find(c => c.name === "cas-btn-pay-t");
+        if (btnPrint) btnPrint.y = board.y + 620;
+        if (btnPrintT) btnPrintT.y = board.y + 633;
+        if (btnPay) btnPay.y = board.y + 620;
+        if (btnPayT) btnPayT.y = board.y + 633;
+      }
+
+      if (board.name === "SIMRS - Data Pasien & RM") {
+        const ph = board.children.find(c => c.name === "f-search-placeholder");
+        if (ph) ph.x = board.x + 284;
+      }
+
       // Safe navbar profile cluster with 65px right-margin (no text clipping)
       const userName = board.children.find(c => c.name === "user-name");
       const userRole = board.children.find(c => c.name === "user-role");
