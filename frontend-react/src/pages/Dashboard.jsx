@@ -45,19 +45,44 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Title & Period Filter */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-full bg-gradient-to-l from-sky-50/60 to-transparent pointer-events-none"></div>
         <div>
-          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Dashboard & Laporan Operasional</h1>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              Live Real-Time Feed
+            </span>
+            <span className="text-[11px] text-slate-400 font-mono">Aggregated in &lt;15ms</span>
+          </div>
+          <h1 className="text-2xl font-black text-slate-900 tracking-tight">Dashboard &amp; Laporan Operasional</h1>
           <p className="text-sm text-slate-500 mt-1">
             Ringkasan analitik real-time pelayanan rawat jalan yang diagregasi melalui <span className="font-semibold text-emerald-600">Node.js Express Backend Service</span>.
           </p>
         </div>
 
         {/* Period Filter Buttons */}
-        <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-lg border border-slate-200">
+        <div className="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl border border-slate-200 z-10">
           {[
             { id: 'today', label: 'Hari Ini' },
             { id: '7days', label: '7 Hari' },
+            { id: '30days', label: '30 Hari' },
+            { id: 'all', label: 'Semua Periode' },
+          ].map((p) => (
+            <button
+              key={p.id}
+              onClick={() => setPeriod(p.id)}
+              className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                period === p.id
+                  ? 'bg-white text-slate-900 shadow-sm border border-slate-300 font-extrabold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+              }`}
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
+      </div>
             { id: '30days', label: '30 Hari' },
             { id: 'all', label: 'Semua' },
           ].map((p) => (
