@@ -282,6 +282,8 @@ class ExaminationController extends BaseApiController
 
             return $this->sendSuccess([
                 'examination' => $exam,
+                'prescription' => $prescription ?? null,
+                'lab_request' => $labReq ?? null,
                 'services_total' => $servicesTotal,
                 'pharmacy_total' => $pharmacyTotal,
                 'lab_total' => $labTotal,
