@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
@@ -19,6 +19,11 @@ export default function App() {
   });
 
   const [currentTab, setCurrentTab] = useState('dashboard');
+
+  useEffect(() => {
+    localStorage.setItem('simrs_role', currentUser.role);
+    localStorage.setItem('simrs_token', currentUser.token);
+  }, [currentUser]);
 
   const handleSwitchRole = (roleObj) => {
     setCurrentUser(roleObj);

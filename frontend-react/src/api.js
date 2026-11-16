@@ -29,10 +29,14 @@ export const apiNode = axios.create({
 
 // Interceptor to inject active token
 const attachToken = (config) => {
-  const token = localStorage.getItem('simrs_token') || 'token_admin_simrs_2026';
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  const validTokens = DEMO_ROLES.map((r) => r.token);
+  let token = localStorage.getItem('simrs_token');
+  if (!token || !validTokens.includes(token)) {
+    token = 'token_admin_simrs_2026';
+    localStorage.setItem('simrs_token', token);
+    localStorage.setItem('simrs_role', 'ADMIN');
   }
+  config.headers.Authorization = `Bearer ${token}`;
   return config;
 };
 

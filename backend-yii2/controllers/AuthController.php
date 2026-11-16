@@ -22,9 +22,11 @@ class AuthController extends BaseApiController
             return $this->sendError('Kredensial login tidak valid. Silakan periksa username dan password Anda.', null, 401);
         }
 
-        // Refresh access token on login
-        $user->generateAccessToken();
-        $user->save(false);
+        // Ensure access token exists; preserve seeded token so demo role switcher and frontend stay synchronized
+        if (empty($user->access_token)) {
+            $user->generateAccessToken();
+            $user->save(false);
+        }
 
         return $this->sendSuccess([
             'token' => $user->access_token,
