@@ -134,20 +134,26 @@ function createSimrsCashier(startX = 3100, startY = 1100) {
 
   function billItem(y, isSelected, invNo, name, ins, total, status, statusColor) {
     if (isSelected) {
-      rect({ name: "bi-bg", x: 245, y: y, w: 518, h: 72, fill: "#F8FAFC" });
-      rect({ name: "bi-bar", x: 245, y: y, w: 4, h: 72, fill: "#2563EB" });
+      rect({ name: "bi-bg", x: 245, y: y, w: 518, h: 76, fill: "#F8FAFC" });
+      rect({ name: "bi-bar", x: 245, y: y, w: 4, h: 76, fill: "#2563EB" });
     }
-    txt({ name: "bi-no", x: 268, y: y + 14, content: invNo, size: 12, weight: "700", color: "#2563EB" });
-    txt({ name: "bi-name", x: 380, y: y + 14, content: name, size: 13, weight: "700", color: "#0F172A" });
-    txt({ name: "bi-sub", x: 268, y: y + 36, content: ins + " | Total: " + total, size: 11, weight: "400", color: "#64748B" });
-    txt({ name: "bi-st", x: 400, y: y + 14, content: status, size: 11, weight: "600", color: statusColor });
-    rect({ name: "bi-sep", x: 244, y: y + 72, w: 520, h: 1, fill: "#E2E8F0" });
+    // Line 1: No. Tagihan & Status
+    txt({ name: "bi-no", x: 268, y: y + 12, content: invNo, size: 12, weight: "700", color: "#2563EB" });
+    txt({ name: "bi-st", x: 636, y: y + 12, content: status, size: 11, weight: "600", color: statusColor });
+
+    // Line 2: Patient Name (left) & Total (right)
+    txt({ name: "bi-name", x: 268, y: y + 32, content: name, size: 14, weight: "700", color: "#0F172A" });
+    txt({ name: "bi-tot", x: 636, y: y + 32, content: total, size: 13, weight: "700", color: "#0F172A" });
+
+    // Line 3: Sub details
+    txt({ name: "bi-sub", x: 268, y: y + 52, content: ins + " | Poliklinik Penyakit Dalam", size: 11, weight: "400", color: "#64748B" });
+    rect({ name: "bi-sep", x: 244, y: y + 76, w: 520, h: 1, fill: "#E2E8F0" });
   }
 
   billItem(285, true, "INV-202611-001", "Hendra Kusuma", "BPJS Kesehatan", "Rp 555.000", "Verifikasi BPJS", "#D97706");
-  billItem(358, false, "INV-202611-002", "Siti Rahmawati", "Umum / Mandiri", "Rp 210.000", "Menunggu Bayar", "#D97706");
-  billItem(431, false, "INV-202611-003", "Ahmad Fauzi", "BPJS Kesehatan", "Rp 150.000", "Verifikasi BPJS", "#D97706");
-  billItem(504, false, "INV-202610-098", "Bambang Subagio", "BPJS Kesehatan", "Rp 680.000", "Lunas", "#059669");
+  billItem(363, false, "INV-202611-002", "Siti Rahmawati", "Umum / Mandiri", "Rp 210.000", "Menunggu Bayar", "#D97706");
+  billItem(441, false, "INV-202611-003", "Ahmad Fauzi", "BPJS Kesehatan", "Rp 150.000", "Verifikasi BPJS", "#D97706");
+  billItem(519, false, "INV-202610-098", "Bambang Subagio", "BPJS Kesehatan", "Rp 680.000", "Lunas", "#059669");
 
   // Right Column: Invoice Breakdown (w: 628)
   rect({ name: "cas-detail-card", x: 788, y: 236, w: 628, h: 640, r: 12, fill: "#FFFFFF", stroke: "#E2E8F0" });

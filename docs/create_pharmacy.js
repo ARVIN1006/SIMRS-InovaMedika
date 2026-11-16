@@ -134,20 +134,25 @@ function createSimrsPharmacy(startX = 100, startY = 1100) {
 
   function rxItem(y, isSelected, rxNo, name, rm, doc, count, status, statusColor) {
     if (isSelected) {
-      rect({ name: "rxi-bg", x: 245, y: y, w: 518, h: 72, fill: "#F8FAFC" });
-      rect({ name: "rxi-bar", x: 245, y: y, w: 4, h: 72, fill: "#2563EB" });
+      rect({ name: "rxi-bg", x: 245, y: y, w: 518, h: 76, fill: "#F8FAFC" });
+      rect({ name: "rxi-bar", x: 245, y: y, w: 4, h: 76, fill: "#2563EB" });
     }
-    txt({ name: "rxi-no", x: 268, y: y + 14, content: rxNo, size: 12, weight: "700", color: "#2563EB" });
-    txt({ name: "rxi-name", x: 380, y: y + 14, content: name, size: 13, weight: "700", color: "#0F172A" });
-    txt({ name: "rxi-sub", x: 268, y: y + 36, content: rm + " | " + doc + " (" + count + " Item)", size: 11, weight: "400", color: "#64748B" });
-    txt({ name: "rxi-st", x: 440, y: y + 14, content: status, size: 11, weight: "600", color: statusColor });
-    rect({ name: "rxi-sep", x: 244, y: y + 72, w: 520, h: 1, fill: "#E2E8F0" });
+    // Line 1: No. Resep & Status
+    txt({ name: "rxi-no", x: 268, y: y + 12, content: rxNo, size: 12, weight: "700", color: "#2563EB" });
+    txt({ name: "rxi-st", x: 636, y: y + 12, content: status, size: 11, weight: "600", color: statusColor });
+
+    // Line 2: Patient Name (standalone line)
+    txt({ name: "rxi-name", x: 268, y: y + 32, content: name, size: 14, weight: "700", color: "#0F172A" });
+
+    // Line 3: Meta Subtitle
+    txt({ name: "rxi-sub", x: 268, y: y + 52, content: rm + " | " + doc + " (" + count + " Item Obat)", size: 11, weight: "400", color: "#64748B" });
+    rect({ name: "rxi-sep", x: 244, y: y + 76, w: 520, h: 1, fill: "#E2E8F0" });
   }
 
-  rxItem(285, true, "RX-202611-001", "Hendra Kusuma", "RM-202611-001", "dr. Budi Santoso", "2", "Menunggu Telaah", "#D97706");
-  rxItem(358, false, "RX-202611-002", "Siti Rahmawati", "RM-202611-002", "dr. Budi Santoso", "1", "Menunggu Telaah", "#D97706");
-  rxItem(431, false, "RX-202611-003", "Ahmad Fauzi", "RM-202611-003", "dr. Budi Santoso", "3", "Sedang Disiapkan", "#2563EB");
-  rxItem(504, false, "RX-202610-098", "Bambang Subagio", "RM-202610-098", "dr. Budi Santoso", "2", "Selesai Diserahkan", "#059669");
+  rxItem(285, true, "RX-202611-001", "Hendra Kusuma", "RM-202611-001", "dr. Budi Santoso, Sp.PD", "2", "Menunggu Telaah", "#D97706");
+  rxItem(363, false, "RX-202611-002", "Siti Rahmawati", "RM-202611-002", "dr. Budi Santoso, Sp.PD", "1", "Menunggu Telaah", "#D97706");
+  rxItem(441, false, "RX-202611-003", "Ahmad Fauzi", "RM-202611-003", "dr. Budi Santoso, Sp.PD", "3", "Sedang Disiapkan", "#2563EB");
+  rxItem(519, false, "RX-202610-098", "Bambang Subagio", "RM-202610-098", "dr. Budi Santoso, Sp.PD", "2", "Selesai Diserahkan", "#059669");
 
   // Right Detail Card (w: 628)
   rect({ name: "ph-detail-card", x: 788, y: 236, w: 628, h: 640, r: 12, fill: "#FFFFFF", stroke: "#E2E8F0" });

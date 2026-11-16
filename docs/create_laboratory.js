@@ -124,20 +124,24 @@ function createSimrsLaboratory(startX = 1600, startY = 1100) {
 
   function labReqItem(y, isSelected, reqNo, name, testName, doc, status, statusColor) {
     if (isSelected) {
-      rect({ name: "lri-bg", x: 245, y: y, w: 478, h: 74, fill: "#F8FAFC" });
-      rect({ name: "lri-bar", x: 245, y: y, w: 4, h: 74, fill: "#2563EB" });
+      rect({ name: "lri-bg", x: 245, y: y, w: 478, h: 80, fill: "#F8FAFC" });
+      rect({ name: "lri-bar", x: 245, y: y, w: 4, h: 80, fill: "#2563EB" });
     }
-    txt({ name: "lri-no", x: 268, y: y + 14, content: reqNo, size: 12, weight: "700", color: "#2563EB" });
-    txt({ name: "lri-name", x: 370, y: y + 14, content: name, size: 13, weight: "700", color: "#0F172A" });
-    txt({ name: "lri-test", x: 268, y: y + 36, content: testName, size: 12, weight: "600", color: "#334155" });
-    txt({ name: "lri-doc", x: 268, y: y + 54, content: "Pengirim: " + doc, size: 11, weight: "400", color: "#64748B" });
-    txt({ name: "lri-st", x: 380, y: y + 54, content: status, size: 11, weight: "600", color: statusColor });
-    rect({ name: "lri-sep", x: 244, y: y + 74, w: 480, h: 1, fill: "#E2E8F0" });
+    // Line 1: Req No & Status
+    txt({ name: "lri-no", x: 268, y: y + 12, content: reqNo, size: 12, weight: "700", color: "#2563EB" });
+    txt({ name: "lri-st", x: 570, y: y + 12, content: status, size: 11, weight: "600", color: statusColor });
+
+    // Line 2: Patient Name & Test
+    txt({ name: "lri-name", x: 268, y: y + 32, content: name + " - " + testName, size: 13, weight: "700", color: "#0F172A" });
+
+    // Line 3: Doctor info
+    txt({ name: "lri-doc", x: 268, y: y + 52, content: "Pengirim: " + doc + " (Poliklinik)", size: 11, weight: "400", color: "#64748B" });
+    rect({ name: "lri-sep", x: 244, y: y + 80, w: 480, h: 1, fill: "#E2E8F0" });
   }
 
-  labReqItem(245, true, "LAB-202611-001", "Hendra Kusuma", "Profil Lipid Lengkap", "dr. Budi Santoso", "Siap Analisis", "#D97706");
-  labReqItem(320, false, "LAB-202611-002", "Bambang Subagio", "Darah Rutin (CBC)", "dr. Budi Santoso", "Selesai / Terverifikasi", "#059669");
-  labReqItem(395, false, "LAB-202611-003", "Ratna Sari", "Glukosa Puasa & HbA1c", "dr. Anita Rahayu", "Menunggu Sampel", "#64748B");
+  labReqItem(245, true, "LAB-202611-001", "Hendra Kusuma", "Profil Lipid Lengkap", "dr. Budi Santoso, Sp.PD", "Siap Analisis", "#D97706");
+  labReqItem(327, false, "LAB-202611-002", "Bambang Subagio", "Darah Rutin (CBC)", "dr. Budi Santoso, Sp.PD", "Terverifikasi", "#059669");
+  labReqItem(409, false, "LAB-202611-003", "Ratna Sari", "Glukosa Puasa & HbA1c", "dr. Anita Rahayu, Sp.A", "Menunggu Sampel", "#64748B");
 
   // Right Column: Result Form (w: 668)
   rect({ name: "lab-form-card", x: 748, y: 196, w: 668, h: 680, r: 12, fill: "#FFFFFF", stroke: "#E2E8F0" });
