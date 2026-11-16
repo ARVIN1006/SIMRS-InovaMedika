@@ -73,6 +73,16 @@ function precisionTidyAndVerify() {
         }
       }
 
+      // Ensure ph-detail-card is in correct position on Farmasi
+      if (board.name === "SIMRS - Farmasi & Resep") {
+        const detailCard = board.children.find(c => c.name === "ph-detail-card");
+        if (detailCard) {
+          detailCard.x = board.x + 788;
+          detailCard.y = board.y + 236;
+          if (typeof detailCard.resize === "function") detailCard.resize(628, 640);
+        }
+      }
+
       // Safe navbar profile cluster with 65px right-margin (no text clipping)
       const userName = board.children.find(c => c.name === "user-name");
       const userRole = board.children.find(c => c.name === "user-role");
