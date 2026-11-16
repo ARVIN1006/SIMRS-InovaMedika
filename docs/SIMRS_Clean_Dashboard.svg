@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif">
+  <!-- Background -->
+  <rect width="1440" height="900" rx="16" fill="#f8fafc"/>
+
+  <!-- Top Navbar -->
+  <rect width="1440" height="64" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Logo -->
+  <rect x="24" y="16" width="32" height="32" rx="8" fill="#2563eb"/>
+  <path d="M40 22v20 M30 32h20" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="66" y="37" fill="#0f172a" font-size="16" font-weight="700" letter-spacing="-0.3">Inova SIMRS</text>
+
+  <!-- Global Search Bar -->
+  <rect x="260" y="14" width="420" height="36" rx="10" fill="#f1f5f9" stroke="#e2e8f0"/>
+  <text x="280" y="37" fill="#94a3b8" font-size="14">🔍</text>
+  <text x="305" y="37" fill="#64748b" font-size="12">Cari pasien, no. rekam medis, dokter...</text>
+  <rect x="635" y="21" width="32" height="22" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="641" y="36" fill="#64748b" font-size="11" font-weight="600" font-family="monospace">⌘K</text>
+
+  <!-- Topbar Right -->
+  <text x="1160" y="37" fill="#64748b" font-size="12" font-weight="500">Senin, 16 Nov 2026</text>
+  <circle cx="1300" cy="32" r="16" fill="#f1f5f9"/>
+  <text x="1294" y="37" fill="#64748b" font-size="13">🔔</text>
+  <circle cx="1345" cy="32" r="16" fill="#e0f2fe"/>
+  <text x="1337" y="37" fill="#0284c7" font-size="12" font-weight="700">AR</text>
+  <text x="1370" y="37" fill="#0f172a" font-size="13" font-weight="600">dr. Budi S.</text>
+
+  <!-- Left Sidebar (Clean Minimalist) -->
+  <rect y="64" width="220" height="836" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Nav Items -->
+  <!-- 1. Dashboard (Active) -->
+  <rect x="12" y="84" width="196" height="40" rx="8" fill="#eff6ff"/>
+  <text x="28" y="109" fill="#2563eb" font-size="14">📊</text>
+  <text x="54" y="109" fill="#1d4ed8" font-size="13" font-weight="600">Dashboard</text>
+
+  <!-- 2. Antrean Pasien -->
+  <g transform="translate(12, 132)">
+    <text x="16" y="25" fill="#64748b" font-size="14">👥</text>
+    <text x="42" y="25" fill="#475569" font-size="13" font-weight="500">Antrean Rawat Jalan</text>
+    <circle cx="180" cy="20" r="8" fill="#dbeafe"/>
+    <text x="177" y="24" fill="#1e40af" font-size="10" font-weight="700">8</text>
+  </g>
+
+  <!-- 3. Rekam Medis (RME) -->
+  <g transform="translate(12, 176)">
+    <text x="16" y="25" fill="#64748b" font-size="14">🩺</text>
+    <text x="42" y="25" fill="#475569" font-size="13" font-weight="500">Pemeriksaan RME</text>
+  </g>
+
+  <!-- 4. Farmasi -->
+  <g transform="translate(12, 220)">
+    <text x="16" y="25" fill="#64748b" font-size="14">💊</text>
+    <text x="42" y="25" fill="#475569" font-size="13" font-weight="500">Farmasi &amp; Resep</text>
+  </g>
+
+  <!-- 5. Laboratorium -->
+  <g transform="translate(12, 264)">
+    <text x="16" y="25" fill="#64748b" font-size="14">🧪</text>
+    <text x="42" y="25" fill="#475569" font-size="13" font-weight="500">Laboratorium</text>
+  </g>
+
+  <!-- 6. Billing / Kasir -->
+  <g transform="translate(12, 308)">
+    <text x="16" y="25" fill="#64748b" font-size="14">💳</text>
+    <text x="42" y="25" fill="#475569" font-size="13" font-weight="500">Kasir Pembayaran</text>
+  </g>
+
+  <!-- 7. Master Data -->
+  <g transform="translate(12, 352)">
+    <text x="16" y="25" fill="#64748b" font-size="14">⚙️</text>
+    <text x="42" y="25" fill="#475569" font-size="13" font-weight="500">Pengaturan Sistem</text>
+  </g>
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <g transform="translate(244, 88)">
+    <!-- Header Title & Action Buttons -->
+    <text x="0" y="28" fill="#0f172a" font-size="22" font-weight="700" letter-spacing="-0.5">Pelayanan Rawat Jalan</text>
+    
+    <!-- Action buttons -->
+    <g transform="translate(960, 0)">
+      <rect width="90" height="36" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="24" y="23" fill="#334155" font-size="12" font-weight="600">Filter Poli</text>
+      <rect x="100" y="0" width="116" height="36" rx="8" fill="#2563eb"/>
+      <text x="116" y="23" fill="#ffffff" font-size="12" font-weight="600">+ Pasien Baru</text>
+    </g>
+
+    <!-- 4 Clean KPI Cards -->
+    <!-- Card 1 -->
+    <g transform="translate(0, 52)">
+      <rect width="280" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="30" fill="#64748b" font-size="12" font-weight="500">Total Kunjungan Hari Ini</text>
+      <text x="20" y="68" fill="#0f172a" font-size="28" font-weight="700" font-family="monospace">42</text>
+      <rect x="190" y="46" width="68" height="24" rx="6" fill="#ecfdf5"/>
+      <text x="200" y="62" fill="#059669" font-size="11" font-weight="700">↑ 12.5%</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(296, 52)">
+      <rect width="280" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="30" fill="#64748b" font-size="12" font-weight="500">Menunggu Antrean</text>
+      <text x="20" y="68" fill="#d97706" font-size="28" font-weight="700" font-family="monospace">8</text>
+      <text x="55" y="66" fill="#94a3b8" font-size="13">pasien</text>
+      <circle cx="240" cy="58" r="6" fill="#f59e0b"/>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(592, 52)">
+      <rect width="280" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="30" fill="#64748b" font-size="12" font-weight="500">Dalam Pemeriksaan</text>
+      <text x="20" y="68" fill="#2563eb" font-size="28" font-weight="700" font-family="monospace">4</text>
+      <text x="55" y="66" fill="#94a3b8" font-size="13">pasien</text>
+      <circle cx="240" cy="58" r="6" fill="#3b82f6"/>
+    </g>
+
+    <!-- Card 4 -->
+    <g transform="translate(888, 52)">
+      <rect width="288" height="90" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="20" y="30" fill="#64748b" font-size="12" font-weight="500">Pelayanan Selesai</text>
+      <text x="20" y="68" fill="#059669" font-size="28" font-weight="700" font-family="monospace">30</text>
+      <text x="65" y="66" fill="#94a3b8" font-size="13">pasien</text>
+      <circle cx="248" cy="58" r="6" fill="#10b981"/>
+    </g>
+
+    <!-- Queue & Patient Table (Clean & Modern) -->
+    <g transform="translate(0, 162)">
+      <rect width="1176" height="390" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      
+      <!-- Table Header Bar -->
+      <text x="24" y="36" fill="#0f172a" font-size="16" font-weight="700">Daftar Antrean Aktif</text>
+      
+      <!-- Tab filters -->
+      <g transform="translate(780, 18)">
+        <rect width="370" height="32" rx="8" fill="#f1f5f9"/>
+        <rect x="3" y="3" width="86" height="26" rx="6" fill="#ffffff"/>
+        <text x="18" y="20" fill="#0f172a" font-size="11" font-weight="700">Semua (42)</text>
+        <text x="108" y="20" fill="#64748b" font-size="11" font-weight="500">Menunggu (8)</text>
+        <text x="200" y="20" fill="#64748b" font-size="11" font-weight="500">Pemeriksaan (4)</text>
+        <text x="300" y="20" fill="#64748b" font-size="11" font-weight="500">Selesai (30)</text>
+      </g>
+
+      <!-- Table Column Headers -->
+      <line x1="24" y1="64" x2="1152" y2="64" stroke="#e2e8f0"/>
+      <text x="24" y="88" fill="#64748b" font-size="11" font-weight="600">NO. ANTREAN</text>
+      <text x="140" y="88" fill="#64748b" font-size="11" font-weight="600">PASIEN &amp; NO. RM</text>
+      <text x="380" y="88" fill="#64748b" font-size="11" font-weight="600">POLIKLINIK</text>
+      <text x="580" y="88" fill="#64748b" font-size="11" font-weight="600">DOKTER</text>
+      <text x="800" y="88" fill="#64748b" font-size="11" font-weight="600">PENJAMIN</text>
+      <text x="930" y="88" fill="#64748b" font-size="11" font-weight="600">STATUS</text>
+      <text x="1070" y="88" fill="#64748b" font-size="11" font-weight="600" text-anchor="end">AKSI</text>
+      <line x1="24" y1="102" x2="1152" y2="102" stroke="#f1f5f9"/>
+
+      <!-- Row 1 -->
+      <g transform="translate(24, 114)">
+        <rect x="0" y="0" width="64" height="28" rx="6" fill="#eff6ff"/>
+        <text x="14" y="19" fill="#1d4ed8" font-size="13" font-weight="700" font-family="monospace">INT-01</text>
+        
+        <text x="116" y="14" fill="#0f172a" font-size="13" font-weight="600">Hendra Kusuma</text>
+        <text x="116" y="28" fill="#64748b" font-size="11" font-family="monospace">RM-202611-001 • L, 45 Th</text>
+
+        <text x="356" y="20" fill="#334155" font-size="13">Penyakit Dalam</text>
+        <text x="556" y="20" fill="#334155" font-size="13">dr. Budi Santoso, Sp.PD</text>
+
+        <rect x="776" y="4" width="52" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="786" y="19" fill="#475569" font-size="11" font-weight="600">UMUM</text>
+
+        <rect x="906" y="4" width="92" height="22" rx="11" fill="#eff6ff"/>
+        <circle cx="916" cy="15" r="3" fill="#2563eb"/>
+        <text x="924" y="19" fill="#1d4ed8" font-size="11" font-weight="600">Pemeriksaan</text>
+
+        <rect x="1048" y="2" width="80" height="26" rx="6" fill="#2563eb"/>
+        <text x="1066" y="19" fill="#ffffff" font-size="11" font-weight="600">Buka RME</text>
+      </g>
+      <line x1="24" y1="160" x2="1152" y2="160" stroke="#f1f5f9"/>
+
+      <!-- Row 2 -->
+      <g transform="translate(24, 172)">
+        <rect x="0" y="0" width="64" height="28" rx="6" fill="#fef3c7"/>
+        <text x="14" y="19" fill="#92400e" font-size="13" font-weight="700" font-family="monospace">GIG-01</text>
+        
+        <text x="116" y="14" fill="#0f172a" font-size="13" font-weight="600">Siti Rahma</text>
+        <text x="116" y="28" fill="#64748b" font-size="11" font-family="monospace">RM-202611-002 • P, 32 Th</text>
+
+        <text x="356" y="20" fill="#334155" font-size="13">Gigi &amp; Mulut</text>
+        <text x="556" y="20" fill="#334155" font-size="13">drg. Ratna Permata</text>
+
+        <rect x="776" y="4" width="52" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="786" y="19" fill="#475569" font-size="11" font-weight="600">UMUM</text>
+
+        <rect x="906" y="4" width="80" height="22" rx="11" fill="#fffbeb"/>
+        <circle cx="916" cy="15" r="3" fill="#d97706"/>
+        <text x="924" y="19" fill="#b45309" font-size="11" font-weight="600">Menunggu</text>
+
+        <rect x="1048" y="2" width="80" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+        <text x="1070" y="19" fill="#0f172a" font-size="11" font-weight="600">Panggil</text>
+      </g>
+      <line x1="24" y1="218" x2="1152" y2="218" stroke="#f1f5f9"/>
+
+      <!-- Row 3 -->
+      <g transform="translate(24, 230)">
+        <rect x="0" y="0" width="64" height="28" rx="6" fill="#fef3c7"/>
+        <text x="14" y="19" fill="#92400e" font-size="13" font-weight="700" font-family="monospace">UMU-01</text>
+        
+        <text x="116" y="14" fill="#0f172a" font-size="13" font-weight="600">Bambang Trianto</text>
+        <text x="116" y="28" fill="#64748b" font-size="11" font-family="monospace">RM-202611-003 • L, 28 Th</text>
+
+        <text x="356" y="20" fill="#334155" font-size="13">Poli Umum</text>
+        <text x="556" y="20" fill="#334155" font-size="13">dr. Anita Wijaya</text>
+
+        <rect x="776" y="4" width="52" height="22" rx="4" fill="#ecfdf5"/>
+        <text x="788" y="19" fill="#059669" font-size="11" font-weight="700">BPJS</text>
+
+        <rect x="906" y="4" width="80" height="22" rx="11" fill="#fffbeb"/>
+        <circle cx="916" cy="15" r="3" fill="#d97706"/>
+        <text x="924" y="19" fill="#b45309" font-size="11" font-weight="600">Menunggu</text>
+
+        <rect x="1048" y="2" width="80" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+        <text x="1070" y="19" fill="#0f172a" font-size="11" font-weight="600">Panggil</text>
+      </g>
+      <line x1="24" y1="276" x2="1152" y2="276" stroke="#f1f5f9"/>
+
+      <!-- Row 4 -->
+      <g transform="translate(24, 288)">
+        <rect x="0" y="0" width="64" height="28" rx="6" fill="#ecfdf5"/>
+        <text x="14" y="19" fill="#059669" font-size="13" font-weight="700" font-family="monospace">ANK-01</text>
+        
+        <text x="116" y="14" fill="#0f172a" font-size="13" font-weight="600">Dewi Lestari</text>
+        <text x="116" y="28" fill="#64748b" font-size="11" font-family="monospace">RM-202611-004 • P, 7 Th</text>
+
+        <text x="356" y="20" fill="#334155" font-size="13">Poli Anak</text>
+        <text x="556" y="20" fill="#334155" font-size="13">dr. Hendra Gunawan, Sp.A</text>
+
+        <rect x="776" y="4" width="52" height="22" rx="4" fill="#f1f5f9"/>
+        <text x="786" y="19" fill="#475569" font-size="11" font-weight="600">UMUM</text>
+
+        <rect x="906" y="4" width="72" height="22" rx="11" fill="#ecfdf5"/>
+        <circle cx="916" cy="15" r="3" fill="#10b981"/>
+        <text x="924" y="19" fill="#047857" font-size="11" font-weight="600">Selesai</text>
+
+        <rect x="1048" y="2" width="80" height="26" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="1068" y="19" fill="#64748b" font-size="11" font-weight="500">Invoice</text>
+      </g>
+    </g>
+
+    <!-- Bottom Row: Poliklinik & Farmasi Quick Summary -->
+    <g transform="translate(0, 566)">
+      <!-- Left Card: Poli Aktif -->
+      <rect width="576" height="190" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+      <text x="24" y="32" fill="#0f172a" font-size="14" font-weight="700">Poliklinik Aktif Hari Ini</text>
+      
+      <g transform="translate(24, 52)">
+        <text y="14" fill="#334155" font-size="12" font-weight="600">Poli Penyakit Dalam</text>
+        <text x="480" y="14" fill="#0f172a" font-size="12" font-weight="700" font-family="monospace">14 Pasien</text>
+        <rect y="24" width="528" height="6" rx="3" fill="#f1f5f9"/>
+        <rect y="24" width="320" height="6" rx="3" fill="#2563eb"/>
+      </g>
+      
+      <g transform="translate(24, 104)">
+        <text y="14" fill="#334155" font-size="12" font-weight="600">Poli Umum</text>
+        <text x="480" y="14" fill="#0f172a" font-size="12" font-weight="700" font-family="monospace">18 Pasien</text>
+        <rect y="24" width="528" height="6" rx="3" fill="#f1f5f9"/>
+        <rect y="24" width="410" height="6" rx="3" fill="#3b82f6"/>
+      </g>
+      
+      <g transform="translate(24, 156)">
+        <text y="14" fill="#334155" font-size="12" font-weight="600">Poli Gigi &amp; Mulut</text>
+        <text x="480" y="14" fill="#0f172a" font-size="12" font-weight="700" font-family="monospace">10 Pasien</text>
+        <rect y="24" width="528" height="6" rx="3" fill="#f1f5f9"/>
+        <rect y="24" width="230" height="6" rx="3" fill="#10b981"/>
+      </g>
+
+      <!-- Right Card: Status Farmasi & Kasir -->
+      <g transform="translate(592, 0)">
+        <rect width="584" height="190" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+        <text x="24" y="32" fill="#0f172a" font-size="14" font-weight="700">Antrean Farmasi &amp; Kasir</text>
+        
+        <g transform="translate(24, 52)">
+          <rect width="256" height="110" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="16" y="26" fill="#64748b" font-size="11" font-weight="600">FARMASI DISPENSING</text>
+          <text x="16" y="64" fill="#0f172a" font-size="24" font-weight="700" font-family="monospace">3</text>
+          <text x="38" y="62" fill="#94a3b8" font-size="12">resep siap serah</text>
+          <rect x="16" y="76" width="90" height="20" rx="4" fill="#ecfdf5"/>
+          <text x="22" y="90" fill="#059669" font-size="10" font-weight="700">Stok Terkunci OK</text>
+        </g>
+
+        <g transform="translate(304, 52)">
+          <rect width="256" height="110" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+          <text x="16" y="26" fill="#64748b" font-size="11" font-weight="600">KASIR / BILLING</text>
+          <text x="16" y="64" fill="#0f172a" font-size="24" font-weight="700" font-family="monospace">1</text>
+          <text x="38" y="62" fill="#94a3b8" font-size="12">menunggu bayar</text>
+          <rect x="16" y="76" width="90" height="20" rx="4" fill="#eff6ff"/>
+          <text x="22" y="90" fill="#1d4ed8" font-size="10" font-weight="700">QRIS &amp; Tunai Siap</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
