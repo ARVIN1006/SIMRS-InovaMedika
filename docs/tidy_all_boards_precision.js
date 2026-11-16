@@ -48,12 +48,19 @@ function precisionTidyAndVerify() {
       const brandTitle = board.children.find(c => c.name === "brand-title");
       if (brandTitle) brandTitle.y = navY + Math.round((navH - brandTitle.height) / 2);
 
-      const pageTitle = board.children.find(c => c.name === "nav-page-title" || c.name === "brand-sub");
-      if (pageTitle) pageTitle.y = navY + Math.round((navH - pageTitle.height) / 2);
+      // Remove redundant nav-page-title or nav-context (clean minimalist navbar)
+      const toDelete = board.children.filter(c => 
+        c.name === "nav-page-title" || c.name === "nav-context" || c.name === "brand-sub"
+      );
+      for (const item of toDelete) item.remove();
 
       const searchBox = board.children.find(c => c.name === "search-box");
       if (searchBox) {
+        searchBox.x = board.x + 340;
         searchBox.y = navY + Math.round((navH - searchBox.height) / 2);
+        if (typeof searchBox.resize === "function" && Math.round(searchBox.width) !== 440) {
+          searchBox.resize(440, 36);
+        }
         const searchPlaceholder = board.children.find(c => c.name === "search-placeholder");
         if (searchPlaceholder) {
           searchPlaceholder.x = searchBox.x + 16;
@@ -61,7 +68,7 @@ function precisionTidyAndVerify() {
         }
         const kbdTxt = board.children.find(c => c.name === "kbd-txt");
         if (kbdTxt) {
-          kbdTxt.x = Math.round(searchBox.x + searchBox.width - kbdTxt.width - 16);
+          kbdTxt.x = searchBox.x + 395;
           kbdTxt.y = navY + Math.round((navH - kbdTxt.height) / 2);
         }
       }
