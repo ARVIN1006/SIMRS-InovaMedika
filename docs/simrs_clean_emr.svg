@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif">
+  <!-- Background -->
+  <rect width="1440" height="900" rx="16" fill="#f8fafc"/>
+
+  <!-- Top Navbar -->
+  <rect width="1440" height="64" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <g transform="translate(24, 24)">
+    <path d="M12 8H2 M6 4L2 8L6 12" stroke="#0f172a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="22" y="13" fill="#0f172a" font-size="15" font-weight="700">Kembali ke Antrean</text>
+  </g>
+  <rect x="1240" y="16" width="176" height="36" rx="8" fill="#2563eb"/>
+  <path d="M1256 34l3.5 3.5 7-7" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="1272" y="38" fill="#ffffff" font-size="12" font-weight="600">Selesai &amp; Kirim Resep</text>
+
+  <!-- Patient Summary Card -->
+  <g transform="translate(24, 80)">
+    <rect width="1392" height="76" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+    
+    <!-- Avatar & Info -->
+    <circle cx="42" cy="38" r="22" fill="#eff6ff"/>
+    <text x="34" y="44" fill="#2563eb" font-size="14" font-weight="700">HK</text>
+    
+    <text x="76" y="32" fill="#0f172a" font-size="16" font-weight="700">Hendra Kusuma</text>
+    <text x="76" y="52" fill="#64748b" font-size="12" font-family="monospace">RM-202611-001 | Laki-laki, 45 Th | Gol. Darah: O+</text>
+    
+    <rect x="350" y="20" width="86" height="22" rx="4" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="358" y="35" fill="#059669" font-size="10" font-weight="700">BPJS KESEHATAN</text>
+
+    <!-- Vital Signs Pill Row -->
+    <g transform="translate(540, 16)">
+      <!-- TD -->
+      <rect width="130" height="44" rx="8" fill="#fef2f2" stroke="#fecaca"/>
+      <text x="12" y="16" fill="#991b1b" font-size="10" font-weight="600">TEKANAN DARAH</text>
+      <text x="12" y="34" fill="#dc2626" font-size="15" font-weight="700" font-family="monospace">140/90</text>
+      <text x="74" y="34" fill="#991b1b" font-size="10">mmHg</text>
+
+      <!-- HR -->
+      <rect x="142" width="110" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="154" y="16" fill="#64748b" font-size="10" font-weight="600">NADI</text>
+      <text x="154" y="34" fill="#0f172a" font-size="15" font-weight="700" font-family="monospace">78</text>
+      <text x="180" y="34" fill="#64748b" font-size="10">bpm</text>
+
+      <!-- Suhu -->
+      <rect x="264" width="100" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="276" y="16" fill="#64748b" font-size="10" font-weight="600">SUHU</text>
+      <text x="276" y="34" fill="#0f172a" font-size="15" font-weight="700" font-family="monospace">36.7</text>
+      <text x="316" y="34" fill="#64748b" font-size="10">C</text>
+
+      <!-- SpO2 -->
+      <rect x="376" width="90" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="388" y="16" fill="#64748b" font-size="10" font-weight="600">SPO2</text>
+      <text x="388" y="34" fill="#0f172a" font-size="15" font-weight="700" font-family="monospace">99</text>
+      <text x="414" y="34" fill="#64748b" font-size="10">%</text>
+
+      <!-- TB/BB -->
+      <rect x="478" width="120" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+      <text x="490" y="16" fill="#64748b" font-size="10" font-weight="600">TB / BB</text>
+      <text x="490" y="34" fill="#0f172a" font-size="14" font-weight="700" font-family="monospace">170 cm / 72 kg</text>
+    </g>
+  </g>
+
+  <!-- 2 Column Layout -->
+  <!-- Left Column: Catatan Klinis & Diagnosis -->
+  <g transform="translate(24, 172)">
+    <rect width="684" height="700" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="24" y="36" fill="#0f172a" font-size="15" font-weight="700">Pemeriksaan &amp; Anamnesis</text>
+    
+    <text x="24" y="72" fill="#475569" font-size="12" font-weight="600">Keluhan Utama</text>
+    <rect x="24" y="84" width="636" height="44" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="36" y="111" fill="#0f172a" font-size="13">Pusing tengkuk dan rasa kaku pada leher sejak 3 hari lalu.</text>
+
+    <text x="24" y="156" fill="#475569" font-size="12" font-weight="600">Anamnesis / Catatan Medis</text>
+    <rect x="24" y="168" width="636" height="90" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="36" y="195" fill="#0f172a" font-size="13">Riwayat hipertensi sejak 2 tahun lalu, tidak rutin kontrol.</text>
+    <text x="36" y="217" fill="#0f172a" font-size="13">Alergi obat (-). Tidak ada keluhan sesak atau nyeri dada.</text>
+
+    <text x="24" y="286" fill="#475569" font-size="12" font-weight="600">Pemeriksaan Fisik</text>
+    <rect x="24" y="298" width="636" height="90" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="36" y="325" fill="#0f172a" font-size="13">KU: Sedang, Compos Mentis. Nyeri tekan suboksipital (+).</text>
+    <text x="36" y="347" fill="#0f172a" font-size="13">Jantung &amp; Paru dalam batas normal. Edema tungkai (-/-).</text>
+
+    <!-- Diagnosis ICD-10 Section -->
+    <text x="24" y="422" fill="#0f172a" font-size="15" font-weight="700">Diagnosis (ICD-10)</text>
+    
+    <rect x="24" y="438" width="636" height="56" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+    <rect x="36" y="452" width="70" height="28" rx="6" fill="#1d4ed8"/>
+    <text x="46" y="470" fill="#ffffff" font-size="12" font-weight="700" font-family="monospace">I10</text>
+    <text x="118" y="471" fill="#1e3a8a" font-size="13" font-weight="600">Essential (primary) hypertension - Diagnosis Utama</text>
+
+    <rect x="24" y="506" width="636" height="48" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <rect x="36" y="518" width="70" height="24" rx="6" fill="#64748b"/>
+    <text x="44" y="534" fill="#ffffff" font-size="11" font-weight="700" font-family="monospace">G44.2</text>
+    <text x="118" y="534" fill="#334155" font-size="12">Tension-type headache - Diagnosis Sekunder</text>
+  </g>
+
+  <!-- Right Column: Tindakan, Resep & Lab -->
+  <g transform="translate(732, 172)">
+    <rect width="684" height="700" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="24" y="36" fill="#0f172a" font-size="15" font-weight="700">Tindakan &amp; Resep Pasien</text>
+
+    <!-- Tindakan Medis -->
+    <text x="24" y="72" fill="#475569" font-size="12" font-weight="600">Tindakan Medis</text>
+    <rect x="24" y="84" width="636" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="40" y="111" fill="#0f172a" font-size="13" font-weight="500">Konsultasi Dokter Spesialis Penyakit Dalam</text>
+    <text x="540" y="111" fill="#0f172a" font-size="13" font-weight="600" font-family="monospace">Rp 150.000</text>
+
+    <rect x="24" y="136" width="636" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="40" y="163" fill="#0f172a" font-size="13" font-weight="500">Pemeriksaan Rekam Jantung (EKG 12 Lead)</text>
+    <text x="540" y="163" fill="#0f172a" font-size="13" font-weight="600" font-family="monospace">Rp 120.000</text>
+
+    <!-- Resep Obat -->
+    <text x="24" y="214" fill="#475569" font-size="12" font-weight="600">Resep Obat Farmasi</text>
+    
+    <rect x="24" y="226" width="636" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="40" y="251" fill="#0f172a" font-size="13" font-weight="600">Amlodipine 10 mg Tablet</text>
+    <text x="40" y="271" fill="#64748b" font-size="11">1x sehari 1 tablet sesudah makan pagi</text>
+    <rect x="550" y="242" width="70" height="26" rx="6" fill="#eff6ff"/>
+    <text x="562" y="259" fill="#1d4ed8" font-size="12" font-weight="700" font-family="monospace">30 Tab</text>
+
+    <rect x="24" y="294" width="636" height="60" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="40" y="319" fill="#0f172a" font-size="13" font-weight="600">Paracetamol 500 mg Tablet</text>
+    <text x="40" y="339" fill="#64748b" font-size="11">3x sehari 1 tablet jika nyeri/pusing</text>
+    <rect x="550" y="310" width="70" height="26" rx="6" fill="#f1f5f9"/>
+    <text x="562" y="327" fill="#475569" font-size="12" font-weight="700" font-family="monospace">10 Tab</text>
+
+    <!-- Permintaan Lab -->
+    <text x="24" y="384" fill="#475569" font-size="12" font-weight="600">Pemeriksaan Laboratorium (LIS)</text>
+    <rect x="24" y="396" width="636" height="56" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="40" y="422" fill="#14532d" font-size="13" font-weight="600">Profil Lipid Lengkap (Kolesterol, Trigliserida, HDL, LDL)</text>
+    <text x="40" y="440" fill="#166534" font-size="11">Status: Siap kirim sampel ke laboratorium</text>
+
+    <!-- Ringkasan Tagihan Sederhana -->
+    <g transform="translate(24, 480)">
+      <rect width="636" height="80" rx="10" fill="#0f172a"/>
+      <text x="24" y="32" fill="#94a3b8" font-size="11" font-weight="600">TOTAL BIAYA PELAYANAN</text>
+      <text x="24" y="62" fill="#38bdf8" font-size="24" font-weight="700" font-family="monospace">Rp 555.000</text>
+      <text x="450" y="62" fill="#a7f3d0" font-size="12" font-weight="600">Ditanggung BPJS</text>
+    </g>
+  </g>
+</svg>
