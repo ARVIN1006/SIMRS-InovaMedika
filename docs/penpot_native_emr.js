@@ -1,4 +1,4 @@
-// Generator for SIMRS EMR (Pemeriksaan RME) using native Penpot shapes
+// Generator for SIMRS EMR - Minimalist, Badge-reduced, Native Penpot Shapes
 
 function createSimrsEmr(startX = 1600, startY = 100) {
   const board = penpot.createBoard();
@@ -52,61 +52,53 @@ function createSimrsEmr(startX = 1600, startY = 100) {
   // --- TOP NAVBAR ---
   rect({ name: "navbar-bg", x: 0, y: 0, w: 1440, h: 64, fill: "#FFFFFF", stroke: "#E2E8F0" });
 
-  // Back Button (Pure rectangles and text)
-  rect({ name: "btn-back", x: 24, y: 14, w: 170, h: 36, r: 8, fill: "#F1F5F9", stroke: "#E2E8F0" });
-  rect({ name: "arrow-stem", x: 38, y: 31, w: 12, h: 2, r: 1, fill: "#0F172A" });
-  rect({ name: "arrow-top", x: 38, y: 28, w: 4, h: 2, r: 1, fill: "#0F172A" });
-  rect({ name: "arrow-bot", x: 38, y: 34, w: 4, h: 2, r: 1, fill: "#0F172A" });
-  txt({ name: "btn-back-txt", x: 58, y: 23, content: "Kembali ke Antrean", size: 12, weight: "700", color: "#0F172A" });
+  // Back Button (Minimalist)
+  rect({ name: "btn-back", x: 24, y: 14, w: 170, h: 36, r: 8, fill: "#F8FAFC", stroke: "#CBD5E1" });
+  rect({ name: "arrow-stem", x: 38, y: 31, w: 12, h: 2, r: 1, fill: "#334155" });
+  rect({ name: "arrow-top", x: 38, y: 28, w: 4, h: 2, r: 1, fill: "#334155" });
+  rect({ name: "arrow-bot", x: 38, y: 34, w: 4, h: 2, r: 1, fill: "#334155" });
+  txt({ name: "btn-back-txt", x: 58, y: 23, content: "Kembali ke Antrean", size: 12, weight: "600", color: "#334155" });
 
-  // Active Tag
-  rect({ name: "status-tag", x: 210, y: 19, w: 130, h: 26, r: 4, fill: "#EFF6FF", stroke: "#BFDBFE" });
-  txt({ name: "status-tag-txt", x: 220, y: 24, content: "KONSULTASI AKTIF", size: 10, weight: "700", color: "#1D4ED8" });
+  txt({ name: "nav-context", x: 214, y: 24, content: "Pemeriksaan Rawat Jalan - Rekam Medis Elektronik", size: 13, weight: "400", color: "#64748B" });
 
   // Right Action: Selesai & Kirim Resep
   rect({ name: "btn-complete", x: 1236, y: 14, w: 180, h: 36, r: 8, fill: "#2563EB" });
-  txt({ name: "btn-complete-txt", x: 1256, y: 23, content: "Selesai & Kirim Resep", size: 12, weight: "700", color: "#FFFFFF" });
+  txt({ name: "btn-complete-txt", x: 1256, y: 23, content: "Selesai & Kirim Resep", size: 12, weight: "600", color: "#FFFFFF" });
 
-  // --- PATIENT SUMMARY CARD ---
+  // --- PATIENT SUMMARY & VITALS STRIP ---
   rect({ name: "patient-card", x: 24, y: 80, w: 1392, h: 76, r: 10, fill: "#FFFFFF", stroke: "#E2E8F0" });
   circle({ name: "patient-avatar", x: 44, y: 96, size: 44, fill: "#EFF6FF", stroke: "#BFDBFE" });
   txt({ name: "avatar-initials", x: 56, y: 108, content: "HK", size: 15, weight: "700", color: "#2563EB" });
 
   txt({ name: "p-name", x: 104, y: 96, content: "Hendra Kusuma", size: 16, weight: "700", color: "#0F172A" });
-  rect({ name: "bpjs-tag", x: 235, y: 96, w: 110, h: 22, r: 4, fill: "#ECFDF5", stroke: "#A7F3D0" });
-  txt({ name: "bpjs-tag-txt", x: 243, y: 100, content: "BPJS KESEHATAN", size: 9, weight: "700", color: "#059669" });
-  txt({ name: "p-demo", x: 104, y: 120, content: "RM-202611-001 | Laki-laki, 45 Th | Gol. Darah: O+ | NIK: 3204123456780001", size: 12, weight: "400", color: "#64748B" });
+  txt({ name: "p-demo", x: 104, y: 120, content: "RM-202611-001 | Laki-laki, 45 Th | BPJS Kesehatan | NIK: 3204123456780001", size: 12, weight: "400", color: "#64748B" });
 
-  // Vitals Row (Pure boxes)
+  // Unified Vitals Strip (Clean minimalist typography strip, no loud badge boxes)
+  rect({ name: "vitals-strip", x: 740, y: 88, w: 660, h: 60, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
+
   // TD
-  rect({ name: "vit-td", x: 670, y: 92, w: 136, h: 52, r: 8, fill: "#FEF2F2", stroke: "#FECACA" });
-  txt({ name: "vit-td-lbl", x: 682, y: 98, content: "TEKANAN DARAH", size: 9, weight: "700", color: "#991B1B" });
-  txt({ name: "vit-td-val", x: 682, y: 116, content: "140/90 mmHg", size: 13, weight: "700", color: "#DC2626" });
+  txt({ name: "v-td-lbl", x: 756, y: 98, content: "TEKANAN DARAH", size: 9, weight: "700", color: "#991B1B" });
+  txt({ name: "v-td-val", x: 756, y: 118, content: "140/90 mmHg", size: 13, weight: "700", color: "#DC2626" });
+  rect({ name: "v-div-1", x: 875, y: 98, w: 1, h: 40, fill: "#E2E8F0" });
 
   // HR
-  rect({ name: "vit-hr", x: 818, y: 92, w: 110, h: 52, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "vit-hr-lbl", x: 830, y: 98, content: "NADI / HR", size: 9, weight: "700", color: "#64748B" });
-  txt({ name: "vit-hr-val", x: 830, y: 116, content: "78 bpm", size: 13, weight: "700", color: "#0F172A" });
+  txt({ name: "v-hr-lbl", x: 890, y: 98, content: "NADI / HR", size: 9, weight: "700", color: "#64748B" });
+  txt({ name: "v-hr-val", x: 890, y: 118, content: "78 bpm", size: 13, weight: "700", color: "#0F172A" });
+  rect({ name: "v-div-2", x: 990, y: 98, w: 1, h: 40, fill: "#E2E8F0" });
 
   // Suhu
-  rect({ name: "vit-temp", x: 940, y: 92, w: 105, h: 52, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "vit-temp-lbl", x: 952, y: 98, content: "SUHU TUBUH", size: 9, weight: "700", color: "#64748B" });
-  txt({ name: "vit-temp-val", x: 952, y: 116, content: "36.7 C", size: 13, weight: "700", color: "#0F172A" });
+  txt({ name: "v-temp-lbl", x: 1005, y: 98, content: "SUHU TUBUH", size: 9, weight: "700", color: "#64748B" });
+  txt({ name: "v-temp-val", x: 1005, y: 118, content: "36.7 C", size: 13, weight: "700", color: "#0F172A" });
+  rect({ name: "v-div-3", x: 1105, y: 98, w: 1, h: 40, fill: "#E2E8F0" });
 
   // SpO2
-  rect({ name: "vit-spo2", x: 1057, y: 92, w: 95, h: 52, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "vit-spo2-lbl", x: 1069, y: 98, content: "SATURASI", size: 9, weight: "700", color: "#64748B" });
-  txt({ name: "vit-spo2-val", x: 1069, y: 116, content: "99 %", size: 13, weight: "700", color: "#0F172A" });
+  txt({ name: "v-spo2-lbl", x: 1120, y: 98, content: "SATURASI", size: 9, weight: "700", color: "#64748B" });
+  txt({ name: "v-spo2-val", x: 1120, y: 118, content: "99 %", size: 13, weight: "700", color: "#0F172A" });
+  rect({ name: "v-div-4", x: 1210, y: 98, w: 1, h: 40, fill: "#E2E8F0" });
 
   // TB/BB
-  rect({ name: "vit-bb", x: 1164, y: 92, w: 140, h: 52, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "vit-bb-lbl", x: 1176, y: 98, content: "TB / BB", size: 9, weight: "700", color: "#64748B" });
-  txt({ name: "vit-bb-val", x: 1176, y: 116, content: "170 cm / 72 kg", size: 12, weight: "700", color: "#0F172A" });
-
-  // BMI
-  rect({ name: "vit-bmi", x: 1316, y: 92, w: 84, h: 52, r: 8, fill: "#EFF6FF", stroke: "#BFDBFE" });
-  txt({ name: "vit-bmi-lbl", x: 1324, y: 98, content: "STATUS BMI", size: 9, weight: "700", color: "#1D4ED8" });
-  txt({ name: "vit-bmi-val", x: 1324, y: 116, content: "24.9 Normal", size: 11, weight: "700", color: "#1D4ED8" });
+  txt({ name: "v-bb-lbl", x: 1225, y: 98, content: "TB / BB / BMI", size: 9, weight: "700", color: "#64748B" });
+  txt({ name: "v-bb-val", x: 1225, y: 118, content: "170 cm / 72 kg (Normal)", size: 12, weight: "600", color: "#0F172A" });
 
   // --- TWO COLUMNS WORK AREA ---
   // LEFT COLUMN: Anamnesis & Diagnosis
@@ -131,22 +123,20 @@ function createSimrsEmr(startX = 1600, startY = 100) {
   txt({ name: "txt-fisik-1", x: 62, y: 464, content: "KU: Sedang, Kesadaran: Compos Mentis. Nyeri tekan suboksipital (+).", size: 13, weight: "400", color: "#0F172A" });
   txt({ name: "txt-fisik-2", x: 62, y: 488, content: "Cor / Pulmo: S1 S2 reguler murni, murmur (-). Vesikuler (+/+). Edema (-/-).", size: 13, weight: "400", color: "#0F172A" });
 
-  // Diagnosis ICD-10
+  // Diagnosis ICD-10 (Clean minimalist rows, no heavy badge pills)
   txt({ name: "lbl-diag", x: 48, y: 550, content: "Penegakan Diagnosis (ICD-10 Standar Kemenkes)", size: 14, weight: "700", color: "#0F172A" });
 
   // Diag 1: I10
-  rect({ name: "diag-1-box", x: 48, y: 572, w: 636, h: 56, r: 8, fill: "#EFF6FF", stroke: "#BFDBFE" });
-  rect({ name: "diag-1-code-bg", x: 60, y: 586, w: 64, h: 28, r: 6, fill: "#1D4ED8" });
-  txt({ name: "diag-1-code", x: 74, y: 592, content: "I10", size: 12, weight: "700", color: "#FFFFFF" });
-  txt({ name: "diag-1-title", x: 136, y: 584, content: "Essential (primary) hypertension", size: 13, weight: "700", color: "#1E3A8A" });
-  txt({ name: "diag-1-sub", x: 136, y: 602, content: "Diagnosis Utama Rawat Jalan (Poliklinik Penyakit Dalam)", size: 11, weight: "600", color: "#3B82F6" });
+  rect({ name: "diag-1-box", x: 48, y: 572, w: 636, h: 48, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
+  txt({ name: "diag-1-code", x: 64, y: 586, content: "I10", size: 13, weight: "700", color: "#2563EB" });
+  txt({ name: "diag-1-title", x: 108, y: 586, content: "Essential (primary) hypertension", size: 13, weight: "600", color: "#0F172A" });
+  txt({ name: "diag-1-sub", x: 530, y: 586, content: "Diagnosis Utama", size: 12, weight: "600", color: "#2563EB" });
 
   // Diag 2: G44.2
-  rect({ name: "diag-2-box", x: 48, y: 638, w: 636, h: 50, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  rect({ name: "diag-2-code-bg", x: 60, y: 651, w: 64, h: 24, r: 6, fill: "#64748B" });
-  txt({ name: "diag-2-code", x: 70, y: 656, content: "G44.2", size: 11, weight: "700", color: "#FFFFFF" });
-  txt({ name: "diag-2-title", x: 136, y: 648, content: "Tension-type headache", size: 12, weight: "700", color: "#334155" });
-  txt({ name: "diag-2-sub", x: 136, y: 664, content: "Diagnosis Sekunder / Komorbiditas Gejala Klinis", size: 11, weight: "400", color: "#64748B" });
+  rect({ name: "diag-2-box", x: 48, y: 630, w: 636, h: 48, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
+  txt({ name: "diag-2-code", x: 64, y: 644, content: "G44.2", size: 13, weight: "700", color: "#64748B" });
+  txt({ name: "diag-2-title", x: 118, y: 644, content: "Tension-type headache", size: 13, weight: "600", color: "#0F172A" });
+  txt({ name: "diag-2-sub", x: 520, y: 644, content: "Diagnosis Sekunder", size: 12, weight: "400", color: "#64748B" });
 
 
   // RIGHT COLUMN: Tindakan, Resep & Lab Order
@@ -158,40 +148,38 @@ function createSimrsEmr(startX = 1600, startY = 100) {
   txt({ name: "lbl-tindakan", x: 756, y: 234, content: "Tindakan & Layanan Poliklinik", size: 12, weight: "700", color: "#475569" });
   // Row 1
   rect({ name: "tind-1-box", x: 756, y: 252, w: 636, h: 42, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "tind-1-name", x: 772, y: 265, content: "Konsultasi Dokter Spesialis Penyakit Dalam", size: 13, weight: "600", color: "#0F172A" });
-  txt({ name: "tind-1-price", x: 1290, y: 265, content: "Rp 150.000", size: 13, weight: "700", color: "#0F172A" });
+  txt({ name: "tind-1-name", x: 772, y: 265, content: "Konsultasi Dokter Spesialis Penyakit Dalam", size: 13, weight: "400", color: "#0F172A" });
+  txt({ name: "tind-1-price", x: 1290, y: 265, content: "Rp 150.000", size: 13, weight: "600", color: "#0F172A" });
   // Row 2
   rect({ name: "tind-2-box", x: 756, y: 302, w: 636, h: 42, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "tind-2-name", x: 772, y: 315, content: "Pemeriksaan Rekam Jantung (EKG 12 Lead)", size: 13, weight: "600", color: "#0F172A" });
-  txt({ name: "tind-2-price", x: 1290, y: 315, content: "Rp 120.000", size: 13, weight: "700", color: "#0F172A" });
+  txt({ name: "tind-2-name", x: 772, y: 315, content: "Pemeriksaan Rekam Jantung (EKG 12 Lead)", size: 13, weight: "400", color: "#0F172A" });
+  txt({ name: "tind-2-price", x: 1290, y: 315, content: "Rp 120.000", size: 13, weight: "600", color: "#0F172A" });
 
-  // Section 2: Resep Obat Elektronik
+  // Section 2: Resep Obat Elektronik (Clean inline quantity, no badge boxes)
   txt({ name: "lbl-resep", x: 756, y: 362, content: "Resep Obat Farmasi (E-Prescription)", size: 12, weight: "700", color: "#475569" });
   // Drug 1
   rect({ name: "drug-1-box", x: 756, y: 380, w: 636, h: 56, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "drug-1-name", x: 772, y: 394, content: "Amlodipine 10 mg Tablet", size: 13, weight: "700", color: "#0F172A" });
+  txt({ name: "drug-1-name", x: 772, y: 394, content: "Amlodipine 10 mg Tablet", size: 13, weight: "600", color: "#0F172A" });
   txt({ name: "drug-1-signa", x: 772, y: 412, content: "1x sehari 1 tablet sesudah makan pagi", size: 11, weight: "400", color: "#64748B" });
-  rect({ name: "drug-1-qty-box", x: 1310, y: 395, w: 66, h: 26, r: 6, fill: "#EFF6FF" });
-  txt({ name: "drug-1-qty", x: 1320, y: 401, content: "30 Tab", size: 11, weight: "700", color: "#1D4ED8" });
+  txt({ name: "drug-1-qty", x: 1300, y: 400, content: "Jumlah: 30 Tab", size: 12, weight: "600", color: "#2563EB" });
+
   // Drug 2
   rect({ name: "drug-2-box", x: 756, y: 444, w: 636, h: 56, r: 8, fill: "#F8FAFC", stroke: "#E2E8F0" });
-  txt({ name: "drug-2-name", x: 772, y: 458, content: "Paracetamol 500 mg Tablet", size: 13, weight: "700", color: "#0F172A" });
-  txt({ name: "drug-2-signa", x: 772, y: 476, content: "3x sehari 1 tablet jika terasa nyeri tengkuk / pusing", size: 11, weight: "400", color: "#64748B" });
-  rect({ name: "drug-2-qty-box", x: 1310, y: 459, w: 66, h: 26, r: 6, fill: "#F1F5F9" });
-  txt({ name: "drug-2-qty", x: 1320, y: 465, content: "10 Tab", size: 11, weight: "700", color: "#475569" });
+  txt({ name: "drug-2-name", x: 772, y: 458, content: "Paracetamol 500 mg Tablet", size: 13, weight: "600", color: "#0F172A" });
+  txt({ name: "drug-2-signa", x: 772, y: 476, content: "3x sehari 1 tablet jika nyeri / pusing", size: 11, weight: "400", color: "#64748B" });
+  txt({ name: "drug-2-qty", x: 1300, y: 464, content: "Jumlah: 10 Tab", size: 12, weight: "400", color: "#64748B" });
 
   // Section 3: Laboratorium LIS
   txt({ name: "lbl-lab", x: 756, y: 518, content: "Pemeriksaan Laboratorium Terintegrasi (LIS)", size: 12, weight: "700", color: "#475569" });
   rect({ name: "lab-box", x: 756, y: 536, w: 636, h: 54, r: 8, fill: "#F0FDF4", stroke: "#BBF7D0" });
-  txt({ name: "lab-name", x: 772, y: 550, content: "Profil Lipid Lengkap (Kolesterol Total, Trigliserida, HDL, LDL)", size: 13, weight: "700", color: "#14532D" });
-  txt({ name: "lab-status", x: 772, y: 568, content: "Status: Siap kirim order sampel ke unit laboratorium (LIS Terintegrasi)", size: 11, weight: "600", color: "#166534" });
+  txt({ name: "lab-name", x: 772, y: 550, content: "Profil Lipid Lengkap (Kolesterol Total, Trigliserida, HDL, LDL)", size: 13, weight: "600", color: "#14532D" });
+  txt({ name: "lab-status", x: 772, y: 568, content: "Status: Sampel darah siap dianalisis di laboratorium", size: 11, weight: "400", color: "#166534" });
 
-  // Section 4: Billing Summary Card
-  rect({ name: "bill-box", x: 756, y: 610, w: 636, h: 80, r: 10, fill: "#0F172A" });
-  txt({ name: "bill-lbl", x: 780, y: 628, content: "TOTAL ESTIMASI BIAYA PELAYANAN", size: 11, weight: "700", color: "#94A3B8" });
-  txt({ name: "bill-val", x: 780, y: 652, content: "Rp 555.000", size: 24, weight: "700", color: "#38BDF8" });
-  rect({ name: "bill-bpjs-box", x: 1210, y: 634, w: 166, h: 32, r: 6, fill: "#064E3B", stroke: "#059669" });
-  txt({ name: "bill-bpjs-txt", x: 1222, y: 644, content: "DITANGGUNG BPJS 100%", size: 10, weight: "700", color: "#6EE7B7" });
+  // Section 4: Billing Summary Card (Clean minimalist, no badge container)
+  rect({ name: "bill-box", x: 756, y: 610, w: 636, h: 76, r: 10, fill: "#0F172A" });
+  txt({ name: "bill-lbl", x: 780, y: 626, content: "TOTAL BIAYA PELAYANAN", size: 11, weight: "700", color: "#94A3B8" });
+  txt({ name: "bill-val", x: 780, y: 650, content: "Rp 555.000", size: 24, weight: "700", color: "#38BDF8" });
+  txt({ name: "bill-bpjs-txt", x: 1140, y: 644, content: "Ditanggung Penuh BPJS (Pasien: Rp 0)", size: 12, weight: "600", color: "#6EE7B7" });
 
   return board;
 }
