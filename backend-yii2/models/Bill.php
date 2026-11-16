@@ -24,6 +24,26 @@ class Bill extends ActiveRecord
         ];
     }
 
+    public function fields()
+    {
+        $fields = parent::fields();
+        $fields['patient'] = function () {
+            return $this->patient;
+        };
+        $fields['registration'] = function () {
+            if (!$this->registration) return null;
+            return [
+                'id' => $this->registration->id,
+                'registration_number' => $this->registration->registration_number,
+                'queue_number' => $this->registration->queue_number,
+                'payment_type' => $this->registration->payment_type,
+                'clinic' => $this->registration->clinic,
+                'doctor' => $this->registration->doctor,
+            ];
+        };
+        return $fields;
+    }
+
     public function getItems()
     {
         return $this->hasMany(BillItem::class, ['bill_id' => 'id']);

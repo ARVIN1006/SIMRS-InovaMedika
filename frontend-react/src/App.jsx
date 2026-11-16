@@ -82,7 +82,7 @@ export default function App() {
       <div className="flex-1 flex overflow-hidden">
         <Sidebar currentTab={currentTab} setTab={setCurrentTab} userRole={currentUser.role} />
         <main className="flex-1 p-6 overflow-y-auto w-full">
-          <div className="max-w-[1200px]">
+          <div className="w-full">
             {renderContent()}
           </div>
         </main>
