@@ -6,6 +6,24 @@ function precisionTidyAndVerify() {
   let totalFixed = 0;
 
   for (const board of boards) {
+    // Special handling for SIMRS - Pemeriksaan RME
+    if (board.name === "SIMRS - Pemeriksaan RME") {
+      const toRemove = board.children.filter(c => 
+        c.name === "user-avatar" || c.name === "user-initials" || (c.name === "nav-div" && (c.x - board.x) > 1000)
+      );
+      for (const item of toRemove) item.remove();
+
+      const btnComp = board.children.find(c => c.name === "btn-complete");
+      const btnCompTxt = board.children.find(c => c.name === "btn-complete-txt");
+      if (btnComp && btnCompTxt) {
+        btnComp.x = board.x + 1236;
+        btnComp.y = board.y + 14;
+        btnCompTxt.x = board.x + 1236 + Math.round((btnComp.width - btnCompTxt.width) / 2);
+        btnCompTxt.y = board.y + 24;
+      }
+      continue;
+    }
+
     // 1. Top Navbar
     const navBg = board.children.find(c => c.name === "navbar-bg");
     if (navBg) {
@@ -48,24 +66,37 @@ function precisionTidyAndVerify() {
         }
       }
 
-      const userAvatar = board.children.find(c => c.name === "user-avatar");
-      if (userAvatar) {
-        userAvatar.y = navY + Math.round((navH - userAvatar.height) / 2);
-        const userInitials = board.children.find(c => c.name === "user-initials");
-        if (userInitials) {
-          userInitials.x = Math.round(userAvatar.x + (userAvatar.width - userInitials.width) / 2);
-          userInitials.y = Math.round(userAvatar.y + (userAvatar.height - userInitials.height) / 2);
-        }
-      }
-      const navDiv = board.children.find(c => c.name === "nav-div");
-      if (navDiv) navDiv.y = navY + Math.round((navH - navDiv.height) / 2);
-      const dateTxt = board.children.find(c => c.name === "date-txt");
-      if (dateTxt) dateTxt.y = navY + Math.round((navH - dateTxt.height) / 2);
+      // Safe navbar profile cluster with 65px right-margin (no text clipping)
       const userName = board.children.find(c => c.name === "user-name");
       const userRole = board.children.find(c => c.name === "user-role");
-      if (userName && userRole) {
-        userName.y = navY + 16;
-        userRole.y = navY + 34;
+      const userAvatar = board.children.find(c => c.name === "user-avatar");
+      const userInitials = board.children.find(c => c.name === "user-initials");
+      const navDiv = board.children.find(c => c.name === "nav-div");
+      const dateTxt = board.children.find(c => c.name === "date-txt");
+
+      if (userName) {
+        userName.x = board.x + 1240;
+        userName.y = board.y + 16;
+      }
+      if (userRole) {
+        userRole.x = board.x + 1240;
+        userRole.y = board.y + 34;
+      }
+      if (userAvatar) {
+        userAvatar.x = board.x + 1192;
+        userAvatar.y = board.y + 14;
+      }
+      if (userInitials) {
+        userInitials.x = board.x + 1202;
+        userInitials.y = board.y + 24;
+      }
+      if (navDiv) {
+        navDiv.x = board.x + 1176;
+        navDiv.y = board.y + 20;
+      }
+      if (dateTxt) {
+        dateTxt.x = board.x + 1065;
+        dateTxt.y = board.y + 24;
       }
     }
 
