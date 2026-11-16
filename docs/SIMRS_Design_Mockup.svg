@@ -1,0 +1,480 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2960 980" width="2960" height="980" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif">
+  <defs>
+    <linearGradient id="grad-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="grad-success" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <filter id="shadow-sm" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.04" flood-color="#000"/>
+    </filter>
+    <filter id="shadow-md" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.08" flood-color="#0f172a"/>
+    </filter>
+  </defs>
+
+  <!-- ==================== ARTBOARD 1: DASHBOARD ANALITIK RAWAT JALAN ==================== -->
+  <g id="artboard-dashboard" transform="translate(20, 20)">
+    <!-- Board Canvas Background -->
+    <rect width="1420" height="940" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+
+    <!-- Header Navbar -->
+    <rect width="1420" height="64" rx="16" fill="#ffffff" filter="url(#shadow-sm)"/>
+    <rect y="63" width="1420" height="1" fill="#e2e8f0"/>
+
+    <!-- Brand Logo -->
+    <rect x="24" y="12" width="40" height="40" rx="10" fill="url(#grad-primary)"/>
+    <text x="34" y="38" fill="#ffffff" font-size="18" font-weight="800">IM</text>
+    <text x="74" y="31" fill="#0f172a" font-size="15" font-weight="800" letter-spacing="-0.3">SIMRS RAWAT JALAN</text>
+    <rect x="245" y="16" width="155" height="20" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="255" y="30" fill="#0369a1" font-size="10" font-weight="700">PT Inova Medika Solusindo</text>
+    <text x="74" y="46" fill="#64748b" font-size="11">Yii2 Core • Node.js Services • React • PostgreSQL 18</text>
+
+    <!-- Role Switcher Pills -->
+    <g transform="translate(820, 14)">
+      <rect width="370" height="36" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+      <rect x="4" y="4" width="68" height="28" rx="6" fill="#ffffff" filter="url(#shadow-sm)"/>
+      <text x="20" y="22" fill="#0f172a" font-size="11" font-weight="700">ADMIN</text>
+      <text x="82" y="22" fill="#64748b" font-size="11" font-weight="600">DOKTER</text>
+      <text x="148" y="22" fill="#64748b" font-size="11" font-weight="600">FARMASI</text>
+      <text x="212" y="22" fill="#64748b" font-size="11" font-weight="600">KASIR</text>
+      <text x="270" y="22" fill="#64748b" font-size="11" font-weight="600">LAB</text>
+      <text x="315" y="22" fill="#64748b" font-size="11" font-weight="600">DAFTAR</text>
+    </g>
+
+    <!-- User Profile Badge -->
+    <g transform="translate(1210, 14)">
+      <circle cx="18" cy="18" r="18" fill="#0284c7"/>
+      <text x="11" y="24" fill="#ffffff" font-size="12" font-weight="700">AR</text>
+      <text x="44" y="18" fill="#0f172a" font-size="12" font-weight="700">Arvin Ramdhan</text>
+      <rect x="44" y="22" width="95" height="15" rx="4" fill="#ecfdf5"/>
+      <text x="48" y="33" fill="#059669" font-size="9" font-weight="700">Senior Programmer</text>
+    </g>
+
+    <!-- Sidebar Left -->
+    <g transform="translate(0, 64)">
+      <rect width="240" height="876" fill="#0f172a"/>
+      <text x="20" y="32" fill="#94a3b8" font-size="10" font-weight="700" letter-spacing="1">MENU PELAYANAN</text>
+
+      <!-- Active Menu: Dashboard -->
+      <g transform="translate(12, 48)">
+        <rect width="216" height="40" rx="8" fill="#0284c7"/>
+        <text x="44" y="25" fill="#ffffff" font-size="13" font-weight="700">Dashboard Analitik</text>
+        <rect x="165" y="12" width="42" height="16" rx="4" fill="#0369a1"/>
+        <text x="170" y="24" fill="#ffffff" font-size="9" font-weight="700">Node.js</text>
+      </g>
+
+      <!-- Menu: Pendaftaran -->
+      <g transform="translate(12, 96)">
+        <text x="44" y="25" fill="#cbd5e1" font-size="13" font-weight="500">Pendaftaran &amp; Antrean</text>
+        <rect x="175" y="12" width="32" height="16" rx="4" fill="#1e293b"/>
+        <text x="180" y="24" fill="#94a3b8" font-size="9" font-weight="700">Yii2</text>
+      </g>
+
+      <!-- Menu: Rekam Medis RME -->
+      <g transform="translate(12, 144)">
+        <text x="44" y="25" fill="#cbd5e1" font-size="13" font-weight="500">RME &amp; Dokter</text>
+        <rect x="175" y="12" width="32" height="16" rx="4" fill="#1e293b"/>
+        <text x="180" y="24" fill="#94a3b8" font-size="9" font-weight="700">Yii2</text>
+      </g>
+
+      <!-- Menu: Farmasi -->
+      <g transform="translate(12, 192)">
+        <text x="44" y="25" fill="#cbd5e1" font-size="13" font-weight="500">Farmasi &amp; Resep</text>
+        <rect x="175" y="12" width="32" height="16" rx="4" fill="#1e293b"/>
+        <text x="180" y="24" fill="#94a3b8" font-size="9" font-weight="700">Yii2</text>
+      </g>
+
+      <!-- Menu: Lab -->
+      <g transform="translate(12, 240)">
+        <text x="44" y="25" fill="#cbd5e1" font-size="13" font-weight="500">Laboratorium (LIS)</text>
+        <rect x="165" y="12" width="42" height="16" rx="4" fill="#1e293b"/>
+        <text x="170" y="24" fill="#94a3b8" font-size="9" font-weight="700">Node.js</text>
+      </g>
+
+      <!-- Menu: Kasir -->
+      <g transform="translate(12, 288)">
+        <text x="44" y="25" fill="#cbd5e1" font-size="13" font-weight="500">Billing &amp; Kasir</text>
+        <rect x="175" y="12" width="32" height="16" rx="4" fill="#1e293b"/>
+        <text x="180" y="24" fill="#94a3b8" font-size="9" font-weight="700">Yii2</text>
+      </g>
+
+      <!-- Menu: Master -->
+      <g transform="translate(12, 336)">
+        <text x="44" y="25" fill="#cbd5e1" font-size="13" font-weight="500">Master Data SIMRS</text>
+        <rect x="175" y="12" width="32" height="16" rx="4" fill="#1e293b"/>
+        <text x="180" y="24" fill="#94a3b8" font-size="9" font-weight="700">Yii2</text>
+      </g>
+
+      <!-- Bottom System Status Card -->
+      <g transform="translate(16, 750)">
+        <rect width="208" height="100" rx="10" fill="#1e293b" stroke="#334155"/>
+        <circle cx="16" cy="20" r="4" fill="#10b981"/>
+        <text x="28" y="24" fill="#f8fafc" font-size="11" font-weight="700">System Resilient Status</text>
+        <text x="16" y="46" fill="#94a3b8" font-size="10">Core SIMRS: <tspan fill="#38bdf8" font-weight="600">Yii2 PHP 8.5</tspan></text>
+        <text x="16" y="64" fill="#94a3b8" font-size="10">Microservices: <tspan fill="#34d399" font-weight="600">Node.js (5000)</tspan></text>
+        <text x="16" y="82" fill="#94a3b8" font-size="10">Database: <tspan fill="#818cf8" font-weight="600">PostgreSQL 18.6</tspan></text>
+      </g>
+    </g>
+
+    <!-- Main Content Area (Translate X=264, Y=84) -->
+    <g transform="translate(264, 84)">
+      <!-- Title & Live Indicator Banner -->
+      <rect width="1132" height="80" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+      <circle cx="32" cy="34" r="5" fill="#10b981"/>
+      <text x="46" y="38" fill="#047857" font-size="11" font-weight="800" letter-spacing="0.5">LIVE OPERATIONAL FEED • POSTGRESQL AGGREGATION &lt;15ms</text>
+      <text x="28" y="62" fill="#0f172a" font-size="20" font-weight="900" letter-spacing="-0.5">Dashboard Eksekutif Pelayanan Rawat Jalan</text>
+
+      <!-- Filter Range Pills -->
+      <g transform="translate(880, 24)">
+        <rect width="228" height="36" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+        <text x="18" y="22" fill="#64748b" font-size="11" font-weight="600">Hari Ini</text>
+        <text x="78" y="22" fill="#64748b" font-size="11" font-weight="600">7 Hari</text>
+        <rect x="130" y="4" width="92" height="28" rx="6" fill="#ffffff" filter="url(#shadow-sm)"/>
+        <text x="142" y="22" fill="#0f172a" font-size="11" font-weight="800">Semua Data</text>
+      </g>
+
+      <!-- 4 KPI Metrics Grid -->
+      <!-- Card 1: Total Kunjungan -->
+      <g transform="translate(0, 96)">
+        <rect width="268" height="104" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="20" y="28" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.5">TOTAL KUNJUNGAN PASIEN</text>
+        <text x="20" y="68" fill="#0f172a" font-size="32" font-weight="900" font-family="monospace">4</text>
+        <text x="55" y="66" fill="#64748b" font-size="13" font-weight="600">Pasien</text>
+        <rect x="18" y="78" width="64" height="18" rx="4" fill="#ecfdf5"/>
+        <text x="24" y="91" fill="#059669" font-size="10" font-weight="700">1 Selesai</text>
+        <rect x="88" y="78" width="75" height="18" rx="4" fill="#fffbeb"/>
+        <text x="94" y="91" fill="#b45309" font-size="10" font-weight="700">3 Menunggu</text>
+        <circle cx="232" cy="38" r="20" fill="#f0f9ff"/>
+        <text x="225" y="44" fill="#0284c7" font-size="16" font-weight="bold">👥</text>
+      </g>
+
+      <!-- Card 2: Total Billing -->
+      <g transform="translate(288, 96)">
+        <rect width="268" height="104" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="20" y="28" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.5">TOTAL NILAI TAGIHAN</text>
+        <text x="20" y="68" fill="#0f172a" font-size="24" font-weight="900" font-family="monospace">Rp 555.000</text>
+        <text x="20" y="90" fill="#059669" font-size="11" font-weight="700">✓ 1 Invoice Terbayar Lunas</text>
+        <circle cx="232" cy="38" r="20" fill="#ecfdf5"/>
+        <text x="225" y="44" fill="#10b981" font-size="16" font-weight="bold">💳</text>
+      </g>
+
+      <!-- Card 3: Kas Masuk -->
+      <g transform="translate(576, 96)">
+        <rect width="268" height="104" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="20" y="28" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.5">TOTAL KAS DITERIMA</text>
+        <text x="20" y="68" fill="#047857" font-size="24" font-weight="900" font-family="monospace">Rp 555.000</text>
+        <text x="20" y="90" fill="#64748b" font-size="11" font-weight="600">Tersinkron Kasir &amp; Akuntansi</text>
+        <circle cx="232" cy="38" r="20" fill="#ecfdf5"/>
+        <text x="225" y="44" fill="#059669" font-size="16" font-weight="bold">💰</text>
+      </g>
+
+      <!-- Card 4: Layanan Penunjang & Lab -->
+      <g transform="translate(864, 96)">
+        <rect width="268" height="104" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="20" y="28" fill="#64748b" font-size="11" font-weight="700" letter-spacing="0.5">LAB &amp; RESILIENSI SISTEM</text>
+        <text x="20" y="68" fill="#0f172a" font-size="24" font-weight="900" font-family="monospace">100% PASS</text>
+        <text x="20" y="90" fill="#0284c7" font-size="11" font-weight="700">Circuit Breaker: CLOSED</text>
+        <circle cx="232" cy="38" r="20" fill="#eff6ff"/>
+        <text x="225" y="44" fill="#2563eb" font-size="16" font-weight="bold">🛡️</text>
+      </g>
+
+      <!-- Middle Two Columns: Poliklinik & Rekap Farmasi -->
+      <!-- Left: Poliklinik Breakdown -->
+      <g transform="translate(0, 216)">
+        <rect width="556" height="250" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="24" y="36" fill="#0f172a" font-size="15" font-weight="800">Kunjungan Berdasarkan Poliklinik</text>
+        <text x="450" y="36" fill="#64748b" font-size="11" font-weight="600">4 Total Pasien</text>
+
+        <!-- Poli Umum -->
+        <text x="24" y="75" fill="#1e293b" font-size="12" font-weight="700">Poli Umum</text>
+        <text x="500" y="75" fill="#0f172a" font-size="12" font-weight="800" font-family="monospace">2 (50%)</text>
+        <rect x="24" y="85" width="508" height="8" rx="4" fill="#f1f5f9"/>
+        <rect x="24" y="85" width="254" height="8" rx="4" fill="#0284c7"/>
+
+        <!-- Poli Penyakit Dalam -->
+        <text x="24" y="125" fill="#1e293b" font-size="12" font-weight="700">Poli Penyakit Dalam</text>
+        <text x="500" y="125" fill="#0f172a" font-size="12" font-weight="800" font-family="monospace">1 (25%)</text>
+        <rect x="24" y="135" width="508" height="8" rx="4" fill="#f1f5f9"/>
+        <rect x="24" y="135" width="127" height="8" rx="4" fill="#3b82f6"/>
+
+        <!-- Poli Gigi & Mulut -->
+        <text x="24" y="175" fill="#1e293b" font-size="12" font-weight="700">Poli Gigi &amp; Mulut</text>
+        <text x="500" y="175" fill="#0f172a" font-size="12" font-weight="800" font-family="monospace">1 (25%)</text>
+        <rect x="24" y="185" width="508" height="8" rx="4" fill="#f1f5f9"/>
+        <rect x="24" y="185" width="127" height="8" rx="4" fill="#10b981"/>
+
+        <!-- Poli Anak / Mata -->
+        <text x="24" y="225" fill="#64748b" font-size="12" font-weight="500">Poli Anak / Bedah / Mata</text>
+        <text x="500" y="225" fill="#94a3b8" font-size="12" font-weight="600" font-family="monospace">0 (0%)</text>
+      </g>
+
+      <!-- Right: Rekap Obat Farmasi Terbanyak -->
+      <g transform="translate(576, 216)">
+        <rect width="556" height="250" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="24" y="36" fill="#0f172a" font-size="15" font-weight="800">Rekap Obat Paling Banyak Diserahkan</text>
+        <text x="460" y="36" fill="#059669" font-size="11" font-weight="700">Farmasi FIFO</text>
+
+        <!-- Med 1 -->
+        <g transform="translate(24, 55)">
+          <text y="16" fill="#0f172a" font-size="13" font-weight="700">Paracetamol 500 mg Tablet</text>
+          <text y="32" fill="#64748b" font-size="11">Analgesik &amp; Antipiretik • Nilai: Rp 60.000</text>
+          <text x="480" y="22" fill="#4338ca" font-size="16" font-weight="900" font-family="monospace">30</text>
+          <text x="480" y="34" fill="#64748b" font-size="10">Tablet</text>
+        </g>
+        <rect x="24" y="102" width="508" height="1" fill="#f1f5f9"/>
+
+        <!-- Med 2 -->
+        <g transform="translate(24, 115)">
+          <text y="16" fill="#0f172a" font-size="13" font-weight="700">Amoxicillin 500 mg Kapsul</text>
+          <text y="32" fill="#64748b" font-size="11">Antibiotik Spektrum Luas • Stok Terpantau</text>
+          <text x="480" y="22" fill="#4338ca" font-size="16" font-weight="900" font-family="monospace">100</text>
+          <text x="480" y="34" fill="#64748b" font-size="10">Kapsul</text>
+        </g>
+        <rect x="24" y="162" width="508" height="1" fill="#f1f5f9"/>
+
+        <!-- Med 3 -->
+        <g transform="translate(24, 175)">
+          <text y="16" fill="#0f172a" font-size="13" font-weight="700">Amlodipine 10 mg Tablet</text>
+          <text y="32" fill="#64748b" font-size="11">Antihipertensi CCB • Terapi Rutin</text>
+          <text x="480" y="22" fill="#4338ca" font-size="16" font-weight="900" font-family="monospace">150</text>
+          <text x="480" y="34" fill="#64748b" font-size="10">Tablet</text>
+        </g>
+      </g>
+
+      <!-- Bottom Table: Real-Time Patient Visits Feed -->
+      <g transform="translate(0, 482)">
+        <rect width="1132" height="350" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+        <text x="24" y="34" fill="#0f172a" font-size="15" font-weight="800">Aktivitas Pelayanan Pasien Rawat Jalan Terkini</text>
+        <text x="1010" y="34" fill="#64748b" font-size="11">PostgreSQL DB</text>
+
+        <!-- Table Header -->
+        <rect x="16" y="50" width="1100" height="32" rx="6" fill="#f8fafc"/>
+        <text x="32" y="70" fill="#64748b" font-size="10" font-weight="800">ANTREAN</text>
+        <text x="120" y="70" fill="#64748b" font-size="10" font-weight="800">PASIEN &amp; NO. RM</text>
+        <text x="360" y="70" fill="#64748b" font-size="10" font-weight="800">POLIKLINIK &amp; DOKTER</text>
+        <text x="640" y="70" fill="#64748b" font-size="10" font-weight="800">PENJAMIN</text>
+        <text x="780" y="70" fill="#64748b" font-size="10" font-weight="800">STATUS LAYANAN</text>
+        <text x="980" y="70" fill="#64748b" font-size="10" font-weight="800">TOTAL TAGIHAN</text>
+
+        <!-- Table Row 1 -->
+        <g transform="translate(16, 90)">
+          <rect width="1100" height="52" rx="6" fill="#ffffff"/>
+          <rect x="12" y="12" width="68" height="26" rx="6" fill="#ede9fe"/>
+          <text x="20" y="29" fill="#6d28d9" font-size="12" font-weight="900" font-family="monospace">INT-001</text>
+          <text x="104" y="24" fill="#0f172a" font-size="13" font-weight="700">Hendra Kusuma</text>
+          <text x="104" y="40" fill="#64748b" font-size="10" font-family="monospace">RM-202611-0001 • L (45 Th)</text>
+          <text x="344" y="24" fill="#0f172a" font-size="12" font-weight="600">Poli Penyakit Dalam</text>
+          <text x="344" y="40" fill="#64748b" font-size="10">dr. Budi Santoso, Sp.PD</text>
+          <rect x="624" y="16" width="52" height="20" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+          <text x="634" y="30" fill="#334155" font-size="10" font-weight="700">UMUM</text>
+          <rect x="764" y="16" width="86" height="20" rx="10" fill="#ecfdf5"/>
+          <text x="774" y="30" fill="#059669" font-size="10" font-weight="800">● COMPLETED</text>
+          <text x="964" y="30" fill="#0f172a" font-size="13" font-weight="900" font-family="monospace">Rp 555.000</text>
+          <rect x="1060" y="16" width="32" height="20" rx="4" fill="#ecfdf5"/>
+          <text x="1064" y="30" fill="#059669" font-size="9" font-weight="800">LUNAS</text>
+        </g>
+        <line x1="32" y1="148" x2="1100" y2="148" stroke="#f1f5f9"/>
+
+        <!-- Table Row 2 -->
+        <g transform="translate(16, 155)">
+          <rect width="1100" height="52" rx="6" fill="#ffffff"/>
+          <rect x="12" y="12" width="68" height="26" rx="6" fill="#e0f2fe"/>
+          <text x="20" y="29" fill="#0369a1" font-size="12" font-weight="900" font-family="monospace">GIG-001</text>
+          <text x="104" y="24" fill="#0f172a" font-size="13" font-weight="700">Siti Rahma</text>
+          <text x="104" y="40" fill="#64748b" font-size="10" font-family="monospace">RM-202611-0002 • P (32 Th)</text>
+          <text x="344" y="24" fill="#0f172a" font-size="12" font-weight="600">Poli Gigi &amp; Mulut</text>
+          <text x="344" y="40" fill="#64748b" font-size="10">drg. Ratna Permata</text>
+          <rect x="624" y="16" width="52" height="20" rx="4" fill="#f1f5f9" stroke="#cbd5e1"/>
+          <text x="634" y="30" fill="#334155" font-size="10" font-weight="700">UMUM</text>
+          <rect x="764" y="16" width="74" height="20" rx="10" fill="#fffbeb"/>
+          <text x="774" y="30" fill="#b45309" font-size="10" font-weight="800">● WAITING</text>
+          <text x="964" y="30" fill="#64748b" font-size="13" font-weight="800" font-family="monospace">Rp 25.000</text>
+        </g>
+        <line x1="32" y1="213" x2="1100" y2="213" stroke="#f1f5f9"/>
+
+        <!-- Table Row 3 -->
+        <g transform="translate(16, 220)">
+          <rect width="1100" height="52" rx="6" fill="#ffffff"/>
+          <rect x="12" y="12" width="68" height="26" rx="6" fill="#e0f2fe"/>
+          <text x="20" y="29" fill="#0369a1" font-size="12" font-weight="900" font-family="monospace">UMU-001</text>
+          <text x="104" y="24" fill="#0f172a" font-size="13" font-weight="700">Bambang Trianto</text>
+          <text x="104" y="40" fill="#64748b" font-size="10" font-family="monospace">RM-202611-0003 • L (28 Th)</text>
+          <text x="344" y="24" fill="#0f172a" font-size="12" font-weight="600">Poli Umum</text>
+          <text x="344" y="40" fill="#64748b" font-size="10">dr. Anita Wijaya</text>
+          <rect x="624" y="16" width="52" height="20" rx="4" fill="#dcfce7" stroke="#86efac"/>
+          <text x="635" y="30" fill="#166534" font-size="10" font-weight="800">BPJS</text>
+          <rect x="764" y="16" width="74" height="20" rx="10" fill="#fffbeb"/>
+          <text x="774" y="30" fill="#b45309" font-size="10" font-weight="800">● WAITING</text>
+          <text x="964" y="30" fill="#64748b" font-size="13" font-weight="800" font-family="monospace">Rp 25.000</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== ARTBOARD 2: REKAM MEDIS ELEKTRONIK (RME DOKTER) ==================== -->
+  <g id="artboard-rme" transform="translate(1480, 20)">
+    <!-- Board Canvas Background -->
+    <rect width="1440" height="940" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+
+    <!-- Header Navbar -->
+    <rect width="1440" height="64" rx="16" fill="#0f172a" filter="url(#shadow-sm)"/>
+    <text x="24" y="38" fill="#ffffff" font-size="16" font-weight="800">🏥 MODUL KONSULTASI &amp; REKAM MEDIS ELEKTRONIK (RME)</text>
+    <rect x="1180" y="16" width="140" height="32" rx="6" fill="#10b981"/>
+    <text x="1195" y="37" fill="#ffffff" font-size="12" font-weight="800">✓ SIMPAN &amp; SELESAI</text>
+
+    <!-- Patient Banner & Triage Alerts -->
+    <g transform="translate(24, 80)">
+      <rect width="1392" height="80" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+      <!-- Patient Identity -->
+      <g transform="translate(20, 20)">
+        <text y="18" fill="#0f172a" font-size="18" font-weight="900">Hendra Kusuma</text>
+        <text y="40" fill="#64748b" font-size="12">No. RM: <tspan fill="#0f172a" font-weight="700" font-family="monospace">RM-202611-0001</tspan> • Laki-laki (45 Tahun) • Gol. Darah: O+</text>
+      </g>
+
+      <!-- Vitals Badges (Triage Metrics) -->
+      <g transform="translate(440, 16)">
+        <!-- BP Indicator (Elevated Alert) -->
+        <rect x="0" y="0" width="130" height="48" rx="8" fill="#fef2f2" stroke="#fecaca"/>
+        <text x="10" y="16" fill="#991b1b" font-size="9" font-weight="800">TEKANAN DARAH</text>
+        <text x="10" y="38" fill="#dc2626" font-size="18" font-weight="900" font-family="monospace">150/95</text>
+        <text x="75" y="36" fill="#991b1b" font-size="10">mmHg</text>
+
+        <!-- Heart Rate -->
+        <rect x="142" y="0" width="110" height="48" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+        <text x="152" y="16" fill="#166534" font-size="9" font-weight="800">DETAK JANTUNG</text>
+        <text x="152" y="38" fill="#15803d" font-size="18" font-weight="900" font-family="monospace">88</text>
+        <text x="180" y="36" fill="#166534" font-size="10">bpm</text>
+
+        <!-- Temperature -->
+        <rect x="264" y="0" width="100" height="48" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+        <text x="274" y="16" fill="#166534" font-size="9" font-weight="800">SUHU TUBUH</text>
+        <text x="274" y="38" fill="#15803d" font-size="18" font-weight="900" font-family="monospace">36.7</text>
+        <text x="316" y="36" fill="#166534" font-size="10">°C</text>
+
+        <!-- SpO2 -->
+        <rect x="376" y="0" width="90" height="48" rx="8" fill="#f0fdf4" stroke="#bbf7d0"/>
+        <text x="386" y="16" fill="#166534" font-size="9" font-weight="800">SPO2</text>
+        <text x="386" y="38" fill="#15803d" font-size="18" font-weight="900" font-family="monospace">98</text>
+        <text x="412" y="36" fill="#166534" font-size="10">%</text>
+
+        <!-- BMI / TB-BB -->
+        <rect x="478" y="0" width="130" height="48" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="488" y="16" fill="#64748b" font-size="9" font-weight="800">TB / BB</text>
+        <text x="488" y="38" fill="#0f172a" font-size="16" font-weight="800" font-family="monospace">170cm/72kg</text>
+      </g>
+    </g>
+
+    <!-- Two-Column Clinical Workplace Grid -->
+    <!-- Column 1: Anamnesis & Fisik (Left 680px) -->
+    <g transform="translate(24, 175)">
+      <rect width="680" height="740" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+      <text x="24" y="34" fill="#0f172a" font-size="15" font-weight="800">1. Anamnesis &amp; Pemeriksaan Fisik</text>
+
+      <!-- Keluhan Utama -->
+      <text x="24" y="68" fill="#334155" font-size="12" font-weight="700">Keluhan Utama</text>
+      <rect x="24" y="78" width="632" height="40" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+      <text x="36" y="102" fill="#0f172a" font-size="12">Pusing berdenyut di tengkuk dan leher kaku sejak 3 hari lalu</text>
+
+      <!-- Riwayat Penyakit -->
+      <text x="24" y="145" fill="#334155" font-size="12" font-weight="700">Riwayat Penyakit Dahulu &amp; Anamnesis Lengkap</text>
+      <rect x="24" y="155" width="632" height="75" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+      <text x="36" y="178" fill="#0f172a" font-size="12">Pasien memiliki riwayat hipertensi grade 1 sejak 2 tahun lalu, tidak rutin</text>
+      <text x="36" y="198" fill="#0f172a" font-size="12">minum obat. Alergi obat disangkal. Riwayat diabetes mellitus tidak ada.</text>
+
+      <!-- Hasil Pemeriksaan Fisik -->
+      <text x="24" y="255" fill="#334155" font-size="12" font-weight="700">Pemeriksaan Fisik Objektif (Head-to-Toe)</text>
+      <rect x="24" y="265" width="632" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+      <text x="36" y="288" fill="#0f172a" font-size="12">Keadaan umum: Compos mentis, gizi cukup. Kepala/leher: Nyeri tekan</text>
+      <text x="36" y="308" fill="#0f172a" font-size="12">suboksipital (+). Cor: S1 S2 reguler, murmur (-). Pulmo: Vesikuler (+/+).</text>
+      <text x="36" y="328" fill="#0f172a" font-size="12">Abdomen: Supel, nyeri tekan (-). Ekstremitas: Akral hangat, edema (-/-).</text>
+
+      <!-- Diagnosis ICD-10 Section -->
+      <text x="24" y="375" fill="#0f172a" font-size="15" font-weight="800">2. Penetapan Diagnosis (ICD-10)</text>
+
+      <!-- Primary Diagnosis Box -->
+      <rect x="24" y="395" width="632" height="60" rx="8" fill="#f0fdf4" stroke="#86efac"/>
+      <rect x="36" y="407" width="95" height="20" rx="4" fill="#15803d"/>
+      <text x="42" y="421" fill="#ffffff" font-size="10" font-weight="800">DIAGNOSIS UTAMA</text>
+      <text x="142" y="422" fill="#14532d" font-size="13" font-weight="800">Essential (primary) hypertension</text>
+      <rect x="550" y="407" width="90" height="36" rx="6" fill="#ffffff" stroke="#86efac"/>
+      <text x="570" y="430" fill="#15803d" font-size="14" font-weight="900" font-family="monospace">ICD: I10</text>
+
+      <!-- Secondary Diagnosis -->
+      <rect x="24" y="465" width="632" height="48" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+      <text x="36" y="485" fill="#64748b" font-size="10" font-weight="700">DIAGNOSIS SEKUNDER</text>
+      <text x="36" y="503" fill="#0f172a" font-size="12">Tension-type headache (G44.2)</text>
+
+      <!-- Scenario D.4 Amendment Badge -->
+      <g transform="translate(24, 530)">
+        <rect width="632" height="80" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+        <text x="18" y="24" fill="#1d4ed8" font-size="11" font-weight="800">🛡️ AUDIT TRAIL AMANDEMEN KLINIS PASCA-BILLING (SKENARIO D.4)</text>
+        <text x="18" y="44" fill="#1e40af" font-size="11">Amandemen diagnosis &amp; tindakan pasca-billing diisolasi melalui tabel addendum</text>
+        <text x="18" y="62" fill="#1e40af" font-size="11">resmi (<tspan font-family="monospace">examination_amendments</tspan>) tanpa merusak nilai tagihan kasir historis.</text>
+      </g>
+    </g>
+
+    <!-- Column 2: Tindakan, Resep, & Lab (Right 680px) -->
+    <g transform="translate(732, 175)">
+      <rect width="680" height="740" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow-sm)"/>
+      <text x="24" y="34" fill="#0f172a" font-size="15" font-weight="800">3. Tindakan Medis &amp; Tarif</text>
+
+      <!-- Item Tindakan 1 -->
+      <g transform="translate(24, 50)">
+        <rect width="632" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="16" y="26" fill="#0f172a" font-size="12" font-weight="700">Konsultasi &amp; Pemeriksaan Dokter Spesialis Penyakit Dalam</text>
+        <text x="530" y="26" fill="#0f172a" font-size="13" font-weight="900" font-family="monospace">Rp 150.000</text>
+      </g>
+
+      <!-- Item Tindakan 2 -->
+      <g transform="translate(24, 102)">
+        <rect width="632" height="44" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="16" y="26" fill="#0f172a" font-size="12" font-weight="700">Pemeriksaan Rekam Jantung (EKG 12 Lead)</text>
+        <text x="530" y="26" fill="#0f172a" font-size="13" font-weight="900" font-family="monospace">Rp 120.000</text>
+      </g>
+
+      <!-- Resep Farmasi Elektronik -->
+      <text x="24" y="180" fill="#0f172a" font-size="15" font-weight="800">4. Resep Obat Elektronik (Pessimistic Lock D.2)</text>
+
+      <!-- Resep Obat 1 -->
+      <g transform="translate(24, 195)">
+        <rect width="632" height="56" rx="8" fill="#fffbeb" stroke="#fef3c7"/>
+        <text x="16" y="24" fill="#78350f" font-size="13" font-weight="800">Amlodipine 10 mg Tablet</text>
+        <text x="16" y="44" fill="#92400e" font-size="11">Signa: 1x sehari 1 tablet sesudah makan pagi</text>
+        <rect x="540" y="14" width="75" height="28" rx="6" fill="#ffffff" stroke="#fde68a"/>
+        <text x="550" y="32" fill="#78350f" font-size="12" font-weight="900" font-family="monospace">Qty: 30</text>
+      </g>
+
+      <!-- Resep Obat 2 -->
+      <g transform="translate(24, 258)">
+        <rect width="632" height="56" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+        <text x="16" y="24" fill="#0f172a" font-size="13" font-weight="800">Paracetamol 500 mg Tablet</text>
+        <text x="16" y="44" fill="#64748b" font-size="11">Signa: 3x sehari 1 tablet jika nyeri/pusing</text>
+        <rect x="540" y="14" width="75" height="28" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+        <text x="550" y="32" fill="#0f172a" font-size="12" font-weight="900" font-family="monospace">Qty: 10</text>
+      </g>
+
+      <!-- Permintaan Laboratorium LIS -->
+      <text x="24" y="345" fill="#0f172a" font-size="15" font-weight="800">5. Order Pemeriksaan Penunjang (LIS Microservice)</text>
+
+      <g transform="translate(24, 360)">
+        <rect width="632" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+        <text x="16" y="26" fill="#0f172a" font-size="12" font-weight="700">Order Laboratorium: <tspan fill="#0284c7">Darah Lengkap &amp; Profil Lipid (Kolesterol/TG/HDL/LDL)</tspan></text>
+        <text x="16" y="48" fill="#64748b" font-size="11">Indikasi Klinis: Evaluasi faktor risiko kardiovaskular pada hipertensi primer</text>
+        <rect x="16" y="56" width="120" height="16" rx="4" fill="#ecfdf5"/>
+        <text x="22" y="68" fill="#059669" font-size="9" font-weight="700">STATUS: VERIFIED (LIS)</text>
+      </g>
+
+      <!-- Total Preview Summary -->
+      <g transform="translate(24, 460)">
+        <rect width="632" height="100" rx="8" fill="#0f172a"/>
+        <text x="20" y="32" fill="#94a3b8" font-size="11" font-weight="700">ESTIMASI TOTAL BILLING TERPADU (SIMRS CORE)</text>
+        <text x="20" y="72" fill="#38bdf8" font-size="28" font-weight="900" font-family="monospace">Rp 555.000</text>
+        <text x="240" y="70" fill="#94a3b8" font-size="11">(Pendaftaran: Rp 25k + Tindakan: Rp 270k + Resep: Rp 110k + Lab: Rp 150k)</text>
+      </g>
+    </g>
+  </g>
+</svg>
