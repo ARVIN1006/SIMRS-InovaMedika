@@ -42,7 +42,7 @@ Solusi ini dikembangkan secara penuh (*end-to-end*) sesuai dengan arsitektur tek
 | **Solusi Skenario Teknis (D.1 - D.6)** | `docs/TECHNICAL_SCENARIOS.md` | Analisis mendalam & implementasi konkret 6 skenario |
 | **Dokumentasi REST API** | `docs/API_DOCUMENTATION.md` | Spesifikasi lengkap seluruh endpoint Yii2 & Node.js |
 | **Postman API Collection** | `postman/SIMRS_Inova_Medika.postman_collection.json` | 8 Modul pengujian terstruktur siap impor |
-| **Automated Test Suite (100% Pass)** | `tests/verify_scenarios.js` | 15 Test kasus otomatis menguji D.1 - D.6 |
+| **Automated Test Suite (100% Pass)** | `tests/verify_scenarios.js`<br>`test_full_crud_manual.py` | 15 Test kasus skenario D.1 - D.6 & 26 Test kasus CRUD End-to-End (100% Pass) |
 | **Panduan Instalasi & Quickstart** | `docs/INSTALLATION_GUIDE.md`<br>`README.md` | Panduan Docker Compose & Local Development |
 
 ---
@@ -65,8 +65,9 @@ docker compose up --build -d
 # 2. Buka aplikasi web di browser
 # http://localhost:3000
 
-# 3. Jalankan pengujian otomatis skenario D.1 - D.6
+# 3. Jalankan pengujian otomatis skenario D.1 - D.6 & CRUD End-to-End (26/26 Pass)
 node tests/verify_scenarios.js
+python3 test_full_crud_manual.py
 ```
 
 Demikian berkas pengerjaan ini saya sampaikan dengan penuh tanggung jawab. Besar harapan saya untuk dapat mempresentasikan dan mendiskusikan arsitektur sistem ini pada tahap wawancara teknis selanjutnya.
@@ -76,6 +77,7 @@ Atas perhatian dan kesempatan yang diberikan, saya ucapkan terima kasih.
 Hormat saya,  
 **Arvin Ramdhan Fakhrudin**  
 No. HP / WhatsApp: +62 821-2766-6523  
-Email: arvinramdhan1006@gmail.com  
-LinkedIn / GitHub: https://github.com/arvin-rf  
+Email: arvin.dev.business@gmail.com  
+LinkedIn: https://www.linkedin.com/in/arvin-ramdhan-fakhrudin  
+GitHub: https://github.com/ARVIN1006  
 Bandung, Jawa Barat
